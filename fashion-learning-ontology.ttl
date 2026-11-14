@@ -1,0 +1,4180 @@
+# Fashion information-architecture learning ontology, v0.1, generated 2026-11-14
+# Placeholder namespaces (example.org): replace with your own before publishing.
+
+@prefix jl: <https://example.org/learning-ontology#> .
+@prefix id: <https://example.org/learning-data/> .
+@prefix fd: <https://example.org/fashion-seed#> .
+@prefix ex: <https://example.org/example-data/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jl:
+    a owl:Ontology ;
+    rdfs:label "Fashion information-architecture learning ontology"@en ;
+    rdfs:comment "A learning ontology for becoming an ontology subject-matter expert for a fashion house. Layer 1 models the learning domain; layer 2 (fd:) is a seed model for fashion traceability. Placeholder namespaces: replace example.org with your own."@en ;
+    dcterms:created "2026-11-14"^^xsd:date ;
+    owl:versionInfo "0.1" ;
+    dcterms:creator "Jazmin (learning project)" .
+
+schema:Organization
+    a owl:Class .
+
+schema:Legislation
+    a owl:Class .
+
+schema:Report
+    a owl:Class .
+
+schema:CreativeWork
+    a owl:Class .
+
+schema:Event
+    a owl:Class .
+
+schema:Place
+    a owl:Class .
+
+schema:Product
+    a owl:Class .
+
+skos:Concept
+    a owl:Class .
+
+skos:ConceptScheme
+    a owl:Class .
+
+skos:related
+    a owl:ObjectProperty .
+
+skos:inScheme
+    a owl:ObjectProperty .
+
+schema:url
+    a owl:AnnotationProperty .
+
+dcterms:source
+    a owl:AnnotationProperty .
+
+dcterms:created
+    a owl:AnnotationProperty .
+
+dcterms:creator
+    a owl:AnnotationProperty .
+
+owl:versionInfo
+    a owl:AnnotationProperty .
+
+jl:LearningTarget
+    a owl:Class ;
+    rdfs:label "Learning target"@en ;
+    rdfs:comment "Anything Jazmin plans to learn: a concept, organization, instrument, tool or distinction."@en .
+
+jl:Concept
+    a owl:Class ;
+    rdfs:label "Concept"@en ;
+    rdfs:comment "An idea to understand, such as provenance or master data."@en ;
+    rdfs:subClassOf jl:LearningTarget , skos:Concept ;
+    owl:disjointWith jl:Organization .
+
+jl:Distinction
+    a owl:Class ;
+    rdfs:label "Distinction"@en ;
+    rdfs:comment "A pair or set of easily confused things that must be explainable without notes."@en ;
+    rdfs:subClassOf jl:LearningTarget .
+
+jl:Organization
+    a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "Any organization. What it is (type) is separate from what it does for the learner (role)."@en ;
+    rdfs:subClassOf jl:LearningTarget , schema:Organization .
+
+jl:StandardsBody
+    a owl:Class ;
+    rdfs:label "Standards body"@en ;
+    rdfs:comment "Writes standards."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:PrivateStandardsBody
+    a owl:Class ;
+    rdfs:label "Private standards body"@en ;
+    rdfs:comment "Industry-owned standard, certification or assessment scheme owner. Not a law-maker."@en ;
+    rdfs:subClassOf jl:StandardsBody .
+
+jl:StandardsCommittee
+    a owl:Class ;
+    rdfs:label "Standards committee"@en ;
+    rdfs:comment "A technical committee inside a standards body."@en ;
+    rdfs:subClassOf jl:StandardsBody .
+
+jl:GovernmentBody
+    a owl:Class ;
+    rdfs:label "Government body"@en ;
+    rdfs:comment "Legislature, agency or intergovernmental body."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:TradeAssociation
+    a owl:Class ;
+    rdfs:label "Trade association"@en ;
+    rdfs:comment "Industry or trade body."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:IndustryInitiative
+    a owl:Class ;
+    rdfs:label "Industry initiative"@en ;
+    rdfs:comment "Coalition, consortium, project or campaign."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:ProfessionalAssociation
+    a owl:Class ;
+    rdfs:label "Professional association"@en ;
+    rdfs:comment "Association of practitioners."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:Platform
+    a owl:Class ;
+    rdfs:label "Platform"@en ;
+    rdfs:comment "Software or data platform."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:Company
+    a owl:Class ;
+    rdfs:label "Company"@en ;
+    rdfs:comment "A for-profit company: brand, laboratory, vendor, employer."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:University
+    a owl:Class ;
+    rdfs:label "University"@en ;
+    rdfs:comment "Educational institution."@en ;
+    rdfs:subClassOf jl:Organization .
+
+jl:Instrument
+    a owl:Class ;
+    rdfs:label "Instrument"@en ;
+    rdfs:comment "A thing with a normative status: law, standard, scheme, framework or study."@en ;
+    rdfs:subClassOf jl:LearningTarget .
+
+jl:Law
+    a owl:Class ;
+    rdfs:label "Law"@en ;
+    rdfs:comment "Binding legislation or regulation."@en ;
+    rdfs:subClassOf jl:Instrument , schema:Legislation ;
+    owl:disjointWith jl:Standard , jl:Framework .
+
+jl:Standard
+    a owl:Class ;
+    rdfs:label "Standard"@en ;
+    rdfs:comment "Voluntary technical standard or specification. Becomes required only when a law, contract or claim points to it."@en ;
+    rdfs:subClassOf jl:Instrument .
+
+jl:CertificationScheme
+    a owl:Class ;
+    rdfs:label "Certification scheme"@en ;
+    rdfs:comment "A standard with a conformity-assessment process and certificates."@en ;
+    rdfs:subClassOf jl:Standard .
+
+jl:Framework
+    a owl:Class ;
+    rdfs:label "Framework"@en ;
+    rdfs:comment "Guidance, reporting or assessment framework."@en ;
+    rdfs:subClassOf jl:Instrument .
+
+jl:ResearchStudy
+    a owl:Class ;
+    rdfs:label "Research study"@en ;
+    rdfs:comment "Research that informs rules without binding anyone."@en ;
+    rdfs:subClassOf jl:Instrument , schema:Report .
+
+jl:Tool
+    a owl:Class ;
+    rdfs:label "Tool"@en ;
+    rdfs:comment "Software or technology to be able to use."@en ;
+    rdfs:subClassOf jl:LearningTarget .
+
+jl:Skill
+    a owl:Class ;
+    rdfs:label "Skill"@en ;
+    rdfs:comment "A competency a job asks for."@en .
+
+jl:JobRequirement
+    a owl:Class ;
+    rdfs:label "Job requirement"@en ;
+    rdfs:comment "A line from the source job description, with its fashion translation."@en .
+
+jl:Deliverable
+    a owl:Class ;
+    rdfs:label "Deliverable"@en ;
+    rdfs:comment "A portfolio output that demonstrates skills."@en ;
+    rdfs:subClassOf schema:CreativeWork .
+
+jl:Resource
+    a owl:Class ;
+    rdfs:label "Resource"@en ;
+    rdfs:comment "A reading, page, training or event."@en ;
+    rdfs:subClassOf schema:CreativeWork .
+
+jl:Milestone
+    a owl:Class ;
+    rdfs:label "Regulatory milestone"@en ;
+    rdfs:comment "A dated step in a law or standard lifecycle. May be a projection."@en ;
+    rdfs:subClassOf schema:Event .
+
+jl:Problem
+    a owl:Class ;
+    rdfs:label "Problem"@en ;
+    rdfs:comment "A question the field must answer, mapped to where to start."@en .
+
+jl:KnowledgeDomain
+    a owl:Class ;
+    rdfs:label "Knowledge domain"@en ;
+    rdfs:comment "Top-level grouping, following the Reference Guide sections."@en ;
+    rdfs:subClassOf skos:Concept .
+
+jl:OrganizationRole
+    a owl:Class ;
+    rdfs:label "Organization role"@en ;
+    rdfs:comment "What an organization does for the learner."@en ;
+    rdfs:subClassOf skos:Concept .
+
+jl:ProficiencyLevel
+    a owl:Class ;
+    rdfs:label "Proficiency level"@en ;
+    rdfs:comment "How deeply to know something."@en ;
+    rdfs:subClassOf skos:Concept .
+
+jl:PriorityTier
+    a owl:Class ;
+    rdfs:label "Priority tier"@en ;
+    rdfs:comment "When to study something."@en ;
+    rdfs:subClassOf skos:Concept .
+
+jl:NormativeStatus
+    a owl:Class ;
+    rdfs:label "Normative status"@en ;
+    rdfs:comment "Whether an instrument is in force, pending, stalled or voluntary."@en ;
+    rdfs:subClassOf skos:Concept .
+
+jl:Jurisdiction
+    a owl:Class ;
+    rdfs:label "Jurisdiction"@en ;
+    rdfs:comment "Where a law applies."@en ;
+    rdfs:subClassOf schema:Place .
+
+jl:playsRole
+    a owl:ObjectProperty ;
+    rdfs:label "plays role"@en ;
+    rdfs:comment "Function the organization serves for the learner."@en ;
+    rdfs:domain jl:Organization ;
+    rdfs:range jl:OrganizationRole .
+
+jl:targetProficiency
+    a owl:ObjectProperty ;
+    rdfs:label "target proficiency"@en ;
+    rdfs:comment "How deeply to know it."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:ProficiencyLevel .
+
+jl:priorityTier
+    a owl:ObjectProperty ;
+    rdfs:label "priority tier"@en ;
+    rdfs:comment "When to study it. Independent of target proficiency."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:PriorityTier .
+
+jl:inDomain
+    a owl:ObjectProperty ;
+    rdfs:label "in domain"@en ;
+    rdfs:comment "Knowledge domain."@en ;
+    rdfs:range jl:KnowledgeDomain .
+
+jl:legalStatus
+    a owl:ObjectProperty ;
+    rdfs:label "normative status"@en ;
+    rdfs:comment "Status in the Career Guide status key."@en ;
+    rdfs:domain jl:Instrument ;
+    rdfs:range jl:NormativeStatus .
+
+jl:jurisdiction
+    a owl:ObjectProperty ;
+    rdfs:label "jurisdiction"@en ;
+    rdfs:comment "Where the law applies."@en ;
+    rdfs:domain jl:Law ;
+    rdfs:range jl:Jurisdiction .
+
+jl:issuedBy
+    a owl:ObjectProperty ;
+    rdfs:label "issued by"@en ;
+    rdfs:comment "Who issued or owns it."@en ;
+    rdfs:domain jl:Instrument ;
+    rdfs:range jl:Organization .
+
+jl:administeredBy
+    a owl:ObjectProperty ;
+    rdfs:label "administered by"@en ;
+    rdfs:comment "Who administers or enforces it."@en ;
+    rdfs:domain jl:Law ;
+    rdfs:range jl:Organization .
+
+jl:memberOf
+    a owl:ObjectProperty ;
+    rdfs:label "member of"@en ;
+    rdfs:comment "Membership of a consortium or initiative."@en ;
+    rdfs:domain jl:Organization ;
+    rdfs:range jl:Organization .
+
+jl:partOf
+    a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "part of"@en ;
+    rdfs:comment "Organizational containment."@en ;
+    rdfs:domain jl:Organization ;
+    rdfs:range jl:Organization .
+
+jl:informs
+    a owl:ObjectProperty ;
+    rdfs:label "informs"@en ;
+    rdfs:comment "Provides input to without binding."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:LearningTarget .
+
+jl:expectedToReference
+    a owl:ObjectProperty ;
+    rdfs:label "expected to reference"@en ;
+    rdfs:comment "A projection that a law will lean on this standard."@en ;
+    rdfs:domain jl:Law ;
+    rdfs:range jl:LearningTarget .
+
+jl:implements
+    a owl:ObjectProperty ;
+    rdfs:label "implements"@en ;
+    rdfs:comment "Operates within or gives effect to."@en ;
+    rdfs:domain jl:Instrument ;
+    rdfs:range jl:Instrument .
+
+jl:usesStandard
+    a owl:ObjectProperty ;
+    rdfs:label "uses standard"@en ;
+    rdfs:comment "Relies on a standard."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:Standard .
+
+jl:builtOn
+    a owl:ObjectProperty ;
+    rdfs:label "built on"@en ;
+    rdfs:comment "Technical dependency between standards."@en ;
+    rdfs:domain jl:Standard ;
+    rdfs:range jl:Standard .
+
+jl:alignedWith
+    a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "aligned with"@en ;
+    rdfs:comment "Documented mapping between vocabularies."@en ;
+    rdfs:domain jl:Standard ;
+    rdfs:range jl:Standard .
+
+jl:prerequisiteFor
+    a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "prerequisite for"@en ;
+    rdfs:comment "Learn the subject before the object."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:LearningTarget .
+
+jl:relatedTo
+    a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "related to"@en ;
+    rdfs:comment "Loose association."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:LearningTarget ;
+    rdfs:subPropertyOf skos:related .
+
+jl:addressesProblem
+    a owl:ObjectProperty ;
+    rdfs:label "addresses problem"@en ;
+    rdfs:comment "Where to start for a problem."@en ;
+    rdfs:domain jl:LearningTarget ;
+    rdfs:range jl:Problem .
+
+jl:contrasts
+    a owl:ObjectProperty ;
+    rdfs:label "contrasts"@en ;
+    rdfs:comment "The things being told apart."@en ;
+    rdfs:domain jl:Distinction ;
+    rdfs:range jl:LearningTarget .
+
+jl:requires
+    a owl:ObjectProperty ;
+    rdfs:label "requires"@en ;
+    rdfs:comment "Skill the requirement calls for."@en ;
+    rdfs:domain jl:JobRequirement ;
+    rdfs:range jl:Skill .
+
+jl:requiresKnowledgeOf
+    a owl:ObjectProperty ;
+    rdfs:label "requires knowledge of"@en ;
+    rdfs:comment "What to know to have the skill."@en ;
+    rdfs:domain jl:Skill ;
+    rdfs:range jl:LearningTarget .
+
+jl:demonstrates
+    a owl:ObjectProperty ;
+    rdfs:label "demonstrates"@en ;
+    rdfs:comment "Skill evidenced by a deliverable."@en ;
+    rdfs:domain jl:Deliverable ;
+    rdfs:range jl:Skill .
+
+jl:buildsOn
+    a owl:ObjectProperty ;
+    rdfs:label "builds on"@en ;
+    rdfs:comment "Deliverable dependency."@en ;
+    rdfs:domain jl:Deliverable ;
+    rdfs:range jl:Deliverable .
+
+jl:targets
+    a owl:ObjectProperty ;
+    rdfs:label "targets"@en ;
+    rdfs:comment "Organization the deliverable is aimed at."@en ;
+    rdfs:domain jl:Deliverable ;
+    rdfs:range jl:Organization .
+
+jl:describes
+    a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "Subject of a resource."@en ;
+    rdfs:domain jl:Resource ;
+    rdfs:range jl:LearningTarget .
+
+jl:milestoneOf
+    a owl:ObjectProperty ;
+    rdfs:label "milestone of"@en ;
+    rdfs:comment "Instrument whose lifecycle the milestone belongs to."@en ;
+    rdfs:domain jl:Milestone ;
+    rdfs:range jl:Instrument .
+
+jl:operationalizedAs
+    a owl:AnnotationProperty ;
+    rdfs:label "operationalized as"@en ;
+    rdfs:comment "Domain-seed class this learning target shapes."@en ;
+    rdfs:domain jl:LearningTarget .
+
+jl:plainEnglish
+    a owl:DatatypeProperty ;
+    rdfs:label "plain English"@en ;
+    rdfs:comment "One-line explanation."@en ;
+    rdfs:range xsd:string .
+
+jl:keyQuestion
+    a owl:DatatypeProperty ;
+    rdfs:label "key question"@en ;
+    rdfs:comment "Question the distinction answers."@en ;
+    rdfs:range xsd:string .
+
+jl:fashionTranslation
+    a owl:DatatypeProperty ;
+    rdfs:label "fashion translation"@en ;
+    rdfs:comment "How the job requirement reads in fashion."@en ;
+    rdfs:range xsd:string .
+
+jl:readiness
+    a owl:DatatypeProperty ;
+    rdfs:label "readiness"@en ;
+    rdfs:comment "Where the learner stands: Evidence, Building, Planned, Reframe, Not started, Not applicable."@en ;
+    rdfs:range xsd:string .
+
+jl:readinessNote
+    a owl:DatatypeProperty ;
+    rdfs:label "readiness note"@en ;
+    rdfs:comment "Detail for readiness."@en ;
+    rdfs:range xsd:string .
+
+jl:requirementLevel
+    a owl:DatatypeProperty ;
+    rdfs:label "requirement level"@en ;
+    rdfs:comment "Required or Nice to have."@en ;
+    rdfs:range xsd:string .
+
+jl:deliverableStatus
+    a owl:DatatypeProperty ;
+    rdfs:label "deliverable status"@en ;
+    rdfs:comment "Done, In progress, Planned or Suggested."@en ;
+    rdfs:range xsd:string .
+
+jl:standardKind
+    a owl:DatatypeProperty ;
+    rdfs:label "standard kind"@en ;
+    rdfs:comment "Identifier, data exchange, vocabulary, certification and so on."@en ;
+    rdfs:range xsd:string .
+
+jl:resourceType
+    a owl:DatatypeProperty ;
+    rdfs:label "resource type"@en ;
+    rdfs:comment "Notes, Web, Training or Event."@en ;
+    rdfs:range xsd:string .
+
+jl:proficiencyScope
+    a owl:DatatypeProperty ;
+    rdfs:label "proficiency scope"@en ;
+    rdfs:comment "Qualifier on target proficiency, such as 'in the DPP context'."@en ;
+    rdfs:range xsd:string .
+
+jl:date
+    a owl:DatatypeProperty ;
+    rdfs:label "date"@en ;
+    rdfs:comment "ISO date, month or year. Precision varies."@en ;
+    rdfs:range xsd:string .
+
+jl:isProjection
+    a owl:DatatypeProperty ;
+    rdfs:label "is projection"@en ;
+    rdfs:comment "True when the date is a projection."@en ;
+    rdfs:range xsd:boolean .
+
+jl:needsVerification
+    a owl:DatatypeProperty ;
+    rdfs:label "needs verification"@en ;
+    rdfs:comment "True when the source notes flag the item as unconfirmed, or when verification here failed."@en ;
+    rdfs:range xsd:boolean .
+
+jl:targetEmployer
+    a owl:DatatypeProperty ;
+    rdfs:label "target employer"@en ;
+    rdfs:comment "True when the company is a stated career target."@en ;
+    rdfs:range xsd:boolean .
+
+jl:OrganizationRoleScheme
+    a skos:ConceptScheme ;
+    rdfs:label "OrganizationRole scheme"@en .
+
+jl:RuleMaker
+    a jl:OrganizationRole ;
+    rdfs:label "Rule Maker"@en ;
+    rdfs:comment "Defines or informs the rules"@en ;
+    skos:inScheme jl:OrganizationRoleScheme .
+
+jl:DataLanguageMaker
+    a jl:OrganizationRole ;
+    rdfs:label "Data Language Maker"@en ;
+    rdfs:comment "Defines the data language"@en ;
+    skos:inScheme jl:OrganizationRoleScheme .
+
+jl:ClaimVerifier
+    a jl:OrganizationRole ;
+    rdfs:label "Claim Verifier"@en ;
+    rdfs:comment "Verifies sustainability claims"@en ;
+    skos:inScheme jl:OrganizationRoleScheme .
+
+jl:IndustryVoice
+    a jl:OrganizationRole ;
+    rdfs:label "Industry Voice"@en ;
+    rdfs:comment "Shows what the industry needs"@en ;
+    skos:inScheme jl:OrganizationRoleScheme .
+
+jl:MarketActor
+    a jl:OrganizationRole ;
+    rdfs:label "Market Actor"@en ;
+    rdfs:comment "Buys, sells, supplies or tests: brands, vendors, labs"@en ;
+    skos:inScheme jl:OrganizationRoleScheme .
+
+jl:ProficiencyLevelScheme
+    a skos:ConceptScheme ;
+    rdfs:label "ProficiencyLevel scheme"@en .
+
+jl:DeepExpertise
+    a jl:ProficiencyLevel ;
+    rdfs:label "Deep Expertise"@en ;
+    rdfs:comment "Explain the role, find the authoritative documents, interpret the relevant parts, apply to a product-data problem"@en ;
+    skos:inScheme jl:ProficiencyLevelScheme .
+
+jl:WorkingLiteracy
+    a jl:ProficiencyLevel ;
+    rdfs:label "Working Literacy"@en ;
+    rdfs:comment "Understand what it does, know the main concepts, find the right document when a project needs it"@en ;
+    skos:inScheme jl:ProficiencyLevelScheme .
+
+jl:CasualMonitoring
+    a jl:ProficiencyLevel ;
+    rdfs:label "Casual Monitoring"@en ;
+    rdfs:comment "Recognise important developments without regular study time"@en ;
+    skos:inScheme jl:ProficiencyLevelScheme .
+
+jl:PriorityTierScheme
+    a skos:ConceptScheme ;
+    rdfs:label "PriorityTier scheme"@en .
+
+jl:Tier1
+    a jl:PriorityTier ;
+    rdfs:label "Tier 1"@en ;
+    rdfs:comment "Build real expertise"@en ;
+    skos:inScheme jl:PriorityTierScheme .
+
+jl:Tier2
+    a jl:PriorityTier ;
+    rdfs:label "Tier 2"@en ;
+    rdfs:comment "Become comfortably conversant"@en ;
+    skos:inScheme jl:PriorityTierScheme .
+
+jl:Tier3
+    a jl:PriorityTier ;
+    rdfs:label "Tier 3"@en ;
+    rdfs:comment "Monitor selectively"@en ;
+    skos:inScheme jl:PriorityTierScheme .
+
+jl:NormativeStatusScheme
+    a skos:ConceptScheme ;
+    rdfs:label "NormativeStatus scheme"@en .
+
+jl:InForce
+    a jl:NormativeStatus ;
+    rdfs:label "In Force"@en ;
+    rdfs:comment "Applies now"@en ;
+    skos:inScheme jl:NormativeStatusScheme .
+
+jl:EnactedNotYetApplicable
+    a jl:NormativeStatus ;
+    rdfs:label "Enacted Not Yet Applicable"@en ;
+    rdfs:comment "Law exists; rules or dates are pending"@en ;
+    skos:inScheme jl:NormativeStatusScheme .
+
+jl:ProposedOrStalled
+    a jl:NormativeStatus ;
+    rdfs:label "Proposed Or Stalled"@en ;
+    rdfs:comment "Do not build on it"@en ;
+    skos:inScheme jl:NormativeStatusScheme .
+
+jl:Voluntary
+    a jl:NormativeStatus ;
+    rdfs:label "Voluntary"@en ;
+    rdfs:comment "Not law"@en ;
+    skos:inScheme jl:NormativeStatusScheme .
+
+jl:KnowledgeDomainScheme
+    a skos:ConceptScheme ;
+    rdfs:label "KnowledgeDomain scheme"@en .
+
+jl:ProductDataStandards
+    a jl:KnowledgeDomain ;
+    rdfs:label "A. Product data standards"@en ;
+    rdfs:comment "A. Product data standards"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:RegulationAndReporting
+    a jl:KnowledgeDomain ;
+    rdfs:label "B. Sustainability regulation and reporting"@en ;
+    rdfs:comment "B. Sustainability regulation and reporting"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:PrivateStandardsAndCertification
+    a jl:KnowledgeDomain ;
+    rdfs:label "C. Private fashion and materials standards"@en ;
+    rdfs:comment "C. Private fashion and materials standards"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:DataQualityAndGovernance
+    a jl:KnowledgeDomain ;
+    rdfs:label "D. Data quality and governance"@en ;
+    rdfs:comment "D. Data quality and governance"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:IndustryAndTradeBodies
+    a jl:KnowledgeDomain ;
+    rdfs:label "E. Industry and trade bodies"@en ;
+    rdfs:comment "E. Industry and trade bodies"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:SemanticTechnologies
+    a jl:KnowledgeDomain ;
+    rdfs:label "F. Semantic technologies and ontology practice"@en ;
+    rdfs:comment "F. Semantic technologies and ontology practice"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:TraceabilityProvenanceEvidence
+    a jl:KnowledgeDomain ;
+    rdfs:label "G. Traceability, provenance and evidence"@en ;
+    rdfs:comment "G. Traceability, provenance and evidence"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+jl:CareerAndCapstone
+    a jl:KnowledgeDomain ;
+    rdfs:label "H. Career and capstone"@en ;
+    rdfs:comment "H. Career and capstone"@en ;
+    skos:inScheme jl:KnowledgeDomainScheme .
+
+fd:Party
+    a owl:Class ;
+    rdfs:label "Party"@en ;
+    rdfs:comment "Any organisation that acts: a brand, supplier, certifier, laboratory."@en .
+
+fd:Brand
+    a owl:Class ;
+    rdfs:label "Brand"@en ;
+    rdfs:comment "The house that owns the product and makes claims about it."@en ;
+    rdfs:subClassOf fd:Party , schema:Organization .
+
+fd:Supplier
+    a owl:Class ;
+    rdfs:label "Supplier"@en ;
+    rdfs:comment "Operates facilities and supplies materials or processing."@en ;
+    rdfs:subClassOf fd:Party .
+
+fd:Certifier
+    a owl:Class ;
+    rdfs:label "Certifier"@en ;
+    rdfs:comment "Issues certificates or conducts assessments."@en ;
+    rdfs:subClassOf fd:Party .
+
+fd:TestingLab
+    a owl:Class ;
+    rdfs:label "Testing laboratory"@en ;
+    rdfs:comment "Runs standardised test methods."@en ;
+    rdfs:subClassOf fd:Party .
+
+fd:Facility
+    a owl:Class ;
+    rdfs:label "Facility"@en ;
+    rdfs:comment "A production location. Identified by OS ID or GLN. Reconcile name variants before merging."@en ;
+    rdfs:subClassOf schema:Place .
+
+fd:ProductModel
+    a owl:Class ;
+    rdfs:label "Product model (style)"@en ;
+    rdfs:comment "Style-level record, such as style 382602."@en ;
+    rdfs:subClassOf schema:Product .
+
+fd:TradeItem
+    a owl:Class ;
+    rdfs:label "Trade item (GTIN level)"@en ;
+    rdfs:comment "Style, colour and size combination that carries a GTIN."@en ;
+    rdfs:subClassOf schema:Product .
+
+fd:SerialisedItem
+    a owl:Class ;
+    rdfs:label "Serialised item"@en ;
+    rdfs:comment "One physical unit. Level at which an item-level DPP attaches."@en ;
+    rdfs:subClassOf schema:Product .
+
+fd:Material
+    a owl:Class ;
+    rdfs:label "Material"@en ;
+    rdfs:comment "A fiber, fabric or component material."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:MaterialComposition
+    a owl:Class ;
+    rdfs:label "Material composition"@en ;
+    rdfs:comment "One material and its share of a product. Maps to gs1:TextileMaterialDetails."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:Lot
+    a owl:Class ;
+    rdfs:label "Lot or batch"@en ;
+    rdfs:comment "A batch of material or product with shared history."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:SupplyChainEvent
+    a owl:Class ;
+    rdfs:label "Supply-chain event"@en ;
+    rdfs:comment "What, where, when and why, as in EPCIS."@en ;
+    rdfs:subClassOf schema:Event .
+
+fd:Evidence
+    a owl:Class ;
+    rdfs:label "Evidence"@en ;
+    rdfs:comment "Anything that supports a claim, with source, scope, date and verification."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:Certificate
+    a owl:Class ;
+    rdfs:label "Certificate"@en ;
+    rdfs:comment "Issued under a scheme to a scope with a validity period."@en ;
+    rdfs:subClassOf fd:Evidence ;
+    rdfs:seeAlso jl:CertificationScheme .
+
+fd:TestResult
+    a owl:Class ;
+    rdfs:label "Test result"@en ;
+    rdfs:comment "Method, laboratory, date and result."@en ;
+    rdfs:subClassOf fd:Evidence .
+
+fd:Assessment
+    a owl:Class ;
+    rdfs:label "Assessment"@en ;
+    rdfs:comment "Facility assessment with findings and corrective actions."@en ;
+    rdfs:subClassOf fd:Evidence .
+
+fd:Claim
+    a owl:Class ;
+    rdfs:label "Claim"@en ;
+    rdfs:comment "A statement about a material, item or facility. Not proof."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:SupplierDeclaration
+    a owl:Class ;
+    rdfs:label "Supplier declaration"@en ;
+    rdfs:comment "A supplier's own statement. Weak until supported."@en ;
+    rdfs:subClassOf fd:Claim .
+
+fd:Verification
+    a owl:Class ;
+    rdfs:label "Verification"@en ;
+    rdfs:comment "Who checked which evidence, when and how."@en ;
+    rdfs:subClassOf schema:Event .
+
+fd:ComplianceRequirement
+    a owl:Class ;
+    rdfs:label "Compliance requirement"@en ;
+    rdfs:comment "What a law demands for which product, market and date."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:DigitalProductPassport
+    a owl:Class ;
+    rdfs:label "Digital Product Passport"@en ;
+    rdfs:comment "An aggregated view over product data, carried by a resolvable identifier. Not a new database."@en ;
+    rdfs:subClassOf owl:Thing .
+
+fd:brandOf
+    a owl:ObjectProperty ;
+    rdfs:label "brandOf"@en ;
+    rdfs:comment "Brand that owns the style."@en ;
+    rdfs:domain fd:ProductModel ;
+    rdfs:range fd:Brand .
+
+fd:hasVariant
+    a owl:ObjectProperty ;
+    rdfs:label "hasVariant"@en ;
+    rdfs:comment "Style to GTIN-level items."@en ;
+    rdfs:domain fd:ProductModel ;
+    rdfs:range fd:TradeItem .
+
+fd:hasUnit
+    a owl:ObjectProperty ;
+    rdfs:label "hasUnit"@en ;
+    rdfs:comment "GTIN-level item to individual units."@en ;
+    rdfs:domain fd:TradeItem ;
+    rdfs:range fd:SerialisedItem .
+
+fd:hasComposition
+    a owl:ObjectProperty ;
+    rdfs:label "hasComposition"@en ;
+    rdfs:comment "Declared composition."@en ;
+    rdfs:domain fd:TradeItem ;
+    rdfs:range fd:MaterialComposition .
+
+fd:ofMaterial
+    a owl:ObjectProperty ;
+    rdfs:label "ofMaterial"@en ;
+    rdfs:comment "Which material."@en ;
+    rdfs:domain fd:MaterialComposition ;
+    rdfs:range fd:Material .
+
+fd:madeFromLot
+    a owl:ObjectProperty ;
+    rdfs:label "madeFromLot"@en ;
+    rdfs:comment "Production lot behind the item."@en ;
+    rdfs:domain fd:TradeItem ;
+    rdfs:range fd:Lot .
+
+fd:lotOfMaterial
+    a owl:ObjectProperty ;
+    rdfs:label "lotOfMaterial"@en ;
+    rdfs:comment "Material contained in the lot."@en ;
+    rdfs:domain fd:Lot ;
+    rdfs:range fd:Material .
+
+fd:producedAt
+    a owl:ObjectProperty ;
+    rdfs:label "producedAt"@en ;
+    rdfs:comment "Where the lot was produced."@en ;
+    rdfs:domain fd:Lot ;
+    rdfs:range fd:Facility .
+
+fd:operatedBy
+    a owl:ObjectProperty ;
+    rdfs:label "operatedBy"@en ;
+    rdfs:comment "Who runs the facility."@en ;
+    rdfs:domain fd:Facility ;
+    rdfs:range fd:Supplier .
+
+fd:concerns
+    a owl:ObjectProperty ;
+    rdfs:label "concerns"@en ;
+    rdfs:comment "What the event is about."@en ;
+    rdfs:domain fd:SupplyChainEvent ;
+    rdfs:range fd:Lot .
+
+fd:atFacility
+    a owl:ObjectProperty ;
+    rdfs:label "atFacility"@en ;
+    rdfs:comment "Where it happened."@en ;
+    rdfs:domain fd:SupplyChainEvent ;
+    rdfs:range fd:Facility .
+
+fd:issuedBy
+    a owl:ObjectProperty ;
+    rdfs:label "issuedBy"@en ;
+    rdfs:comment "Issuing organisation."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range fd:Certifier .
+
+fd:coversFacility
+    a owl:ObjectProperty ;
+    rdfs:label "coversFacility"@en ;
+    rdfs:comment "Scope: facilities."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range fd:Facility .
+
+fd:coversMaterial
+    a owl:ObjectProperty ;
+    rdfs:label "coversMaterial"@en ;
+    rdfs:comment "Scope: materials."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range fd:Material .
+
+fd:aboutMaterial
+    a owl:ObjectProperty ;
+    rdfs:label "aboutMaterial"@en ;
+    rdfs:comment "What the claim is about."@en ;
+    rdfs:domain fd:Claim ;
+    rdfs:range fd:Material .
+
+fd:aboutItem
+    a owl:ObjectProperty ;
+    rdfs:label "aboutItem"@en ;
+    rdfs:comment "What the claim is about."@en ;
+    rdfs:domain fd:Claim ;
+    rdfs:range fd:TradeItem .
+
+fd:assertedBy
+    a owl:ObjectProperty ;
+    rdfs:label "assertedBy"@en ;
+    rdfs:comment "Who makes the claim."@en ;
+    rdfs:domain fd:Claim ;
+    rdfs:range fd:Party .
+
+fd:supportedBy
+    a owl:ObjectProperty ;
+    rdfs:label "supportedBy"@en ;
+    rdfs:comment "What supports it."@en ;
+    rdfs:domain fd:Claim ;
+    rdfs:range fd:Evidence .
+
+fd:verifies
+    a owl:ObjectProperty ;
+    rdfs:label "verifies"@en ;
+    rdfs:comment "What was checked."@en ;
+    rdfs:domain fd:Verification ;
+    rdfs:range fd:Evidence .
+
+fd:performedBy
+    a owl:ObjectProperty ;
+    rdfs:label "performedBy"@en ;
+    rdfs:comment "Who checked it."@en ;
+    rdfs:domain fd:Verification ;
+    rdfs:range fd:Party .
+
+fd:testedBy
+    a owl:ObjectProperty ;
+    rdfs:label "testedBy"@en ;
+    rdfs:comment "Laboratory."@en ;
+    rdfs:domain fd:TestResult ;
+    rdfs:range fd:TestingLab .
+
+fd:testedOn
+    a owl:ObjectProperty ;
+    rdfs:label "testedOn"@en ;
+    rdfs:comment "Tested material."@en ;
+    rdfs:domain fd:TestResult ;
+    rdfs:range fd:Material .
+
+fd:assesses
+    a owl:ObjectProperty ;
+    rdfs:label "assesses"@en ;
+    rdfs:comment "Assessed facility."@en ;
+    rdfs:domain fd:Assessment ;
+    rdfs:range fd:Facility .
+
+fd:describes
+    a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:comment "Item the passport is attached to."@en ;
+    rdfs:domain fd:DigitalProductPassport ;
+    rdfs:range fd:SerialisedItem .
+
+fd:aggregates
+    a owl:ObjectProperty ;
+    rdfs:label "aggregates"@en ;
+    rdfs:comment "Evidence surfaced in the passport."@en ;
+    rdfs:domain fd:DigitalProductPassport ;
+    rdfs:range fd:Evidence .
+
+fd:requiresEvidence
+    a owl:ObjectProperty ;
+    rdfs:label "requiresEvidence"@en ;
+    rdfs:comment "Evidence the law demands."@en ;
+    rdfs:domain fd:ComplianceRequirement ;
+    rdfs:range fd:Evidence .
+
+fd:gtin
+    a owl:DatatypeProperty ;
+    rdfs:label "gtin"@en ;
+    rdfs:comment "14-digit Global Trade Item Number."@en ;
+    rdfs:domain fd:TradeItem ;
+    rdfs:range xsd:string .
+
+fd:osId
+    a owl:DatatypeProperty ;
+    rdfs:label "osId"@en ;
+    rdfs:comment "Open Supply Hub ID."@en ;
+    rdfs:domain fd:Facility ;
+    rdfs:range xsd:string .
+
+fd:glnCode
+    a owl:DatatypeProperty ;
+    rdfs:label "glnCode"@en ;
+    rdfs:comment "Global Location Number."@en ;
+    rdfs:domain fd:Facility ;
+    rdfs:range xsd:string .
+
+fd:percentage
+    a owl:DatatypeProperty ;
+    rdfs:label "percentage"@en ;
+    rdfs:comment "Net weight share of the material."@en ;
+    rdfs:domain fd:MaterialComposition ;
+    rdfs:range xsd:decimal .
+
+fd:certificateNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "certificateNumber"@en ;
+    rdfs:comment "Certificate identifier."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range xsd:string .
+
+fd:validFrom
+    a owl:DatatypeProperty ;
+    rdfs:label "validFrom"@en ;
+    rdfs:comment "Start of validity."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range xsd:date .
+
+fd:validTo
+    a owl:DatatypeProperty ;
+    rdfs:label "validTo"@en ;
+    rdfs:comment "End of validity."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range xsd:date .
+
+fd:countryOfOrigin
+    a owl:DatatypeProperty ;
+    rdfs:label "countryOfOrigin"@en ;
+    rdfs:comment "Declared origin; needs evidence."@en ;
+    rdfs:domain fd:TradeItem ;
+    rdfs:range xsd:string .
+
+fd:eventTime
+    a owl:DatatypeProperty ;
+    rdfs:label "eventTime"@en ;
+    rdfs:comment "When."@en ;
+    rdfs:domain fd:SupplyChainEvent ;
+    rdfs:range xsd:dateTime .
+
+fd:businessStep
+    a owl:DatatypeProperty ;
+    rdfs:label "businessStep"@en ;
+    rdfs:comment "Why: the business step."@en ;
+    rdfs:domain fd:SupplyChainEvent ;
+    rdfs:range xsd:string .
+
+fd:testMethod
+    a owl:DatatypeProperty ;
+    rdfs:label "testMethod"@en ;
+    rdfs:comment "Standardised method identifier."@en ;
+    rdfs:domain fd:TestResult ;
+    rdfs:range xsd:string .
+
+fd:resultValue
+    a owl:DatatypeProperty ;
+    rdfs:label "resultValue"@en ;
+    rdfs:comment "Result."@en ;
+    rdfs:domain fd:TestResult ;
+    rdfs:range xsd:string .
+
+fd:verificationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "verificationDate"@en ;
+    rdfs:comment "Date checked."@en ;
+    rdfs:domain fd:Verification ;
+    rdfs:range xsd:date .
+
+fd:verificationMethod
+    a owl:DatatypeProperty ;
+    rdfs:label "verificationMethod"@en ;
+    rdfs:comment "How it was checked."@en ;
+    rdfs:domain fd:Verification ;
+    rdfs:range xsd:string .
+
+fd:underScheme
+    a owl:ObjectProperty ;
+    rdfs:label "underScheme"@en ;
+    rdfs:comment "Certification scheme (learning layer) under which a certificate is issued."@en ;
+    rdfs:domain fd:Certificate ;
+    rdfs:range jl:CertificationScheme .
+
+fd:basedOn
+    a owl:ObjectProperty ;
+    rdfs:label "basedOn"@en ;
+    rdfs:comment "Law (learning layer) behind a compliance requirement."@en ;
+    rdfs:domain fd:ComplianceRequirement ;
+    rdfs:range jl:Law .
+
+fd:usesMethod
+    a owl:ObjectProperty ;
+    rdfs:label "usesMethod"@en ;
+    rdfs:comment "Standard (learning layer) whose test method produced a result."@en ;
+    rdfs:domain fd:TestResult ;
+    rdfs:range jl:Standard .
+
+id:jur_California
+    a jl:Jurisdiction ;
+    rdfs:label "California"@en .
+
+id:jur_EU
+    a jl:Jurisdiction ;
+    rdfs:label "EU"@en .
+
+id:jur_France
+    a jl:Jurisdiction ;
+    rdfs:label "France"@en .
+
+id:jur_US
+    a jl:Jurisdiction ;
+    rdfs:label "US"@en .
+
+id:gs1
+    a jl:StandardsBody ;
+    rdfs:label "GS1"@en ;
+    jl:plainEnglish "Common identification and data-sharing rules so different companies recognise the same product or location. Groups its work as identify, capture, share."@en ;
+    schema:url <https://www.gs1.org> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_identify .
+
+id:gs1us
+    a jl:StandardsBody ;
+    rdfs:label "GS1 US"@en ;
+    jl:plainEnglish "US member organisation, headquartered in Ewing NJ, with an apparel and general merchandise community. Runs training and GS1 Connect."@en ;
+    schema:url <https://www.gs1us.org> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:gs1 .
+
+id:cencenelec
+    a jl:StandardsBody ;
+    rdfs:label "CEN-CENELEC"@en ;
+    jl:plainEnglish "European standardisation organisations. Its SDG page maps standards to the 17 goals (SDG 12 lists 2,839 standards) and names no textile or DPP standards."@en ;
+    schema:url <https://www.cencenelec.eu> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:jtc24
+    a jl:StandardsCommittee ;
+    rdfs:label "CEN-CENELEC JTC 24 (Digital Product Passport)"@en ;
+    jl:plainEnglish "European committee writing DPP standards. Not the European Commission and not ISO/IEC JTC 5."@en ;
+    schema:url <https://www.cencenelec.eu> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in the DPP context" ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:cencenelec ;
+    jl:addressesProblem id:p_dpp .
+
+id:isoiecjtc5
+    a jl:StandardsCommittee ;
+    rdfs:label "ISO/IEC JTC 5 (Digital Product Passport)"@en ;
+    jl:plainEnglish "Cross-sector and cross-system DPP interoperability. A different standardisation system from CEN-CENELEC JTC 24; monitor both."@en ;
+    schema:url <https://www.iso.org/committee/11760382.html> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:iso , id:iec ;
+    jl:addressesProblem id:p_dpp .
+
+id:iso
+    a jl:StandardsBody ;
+    rdfs:label "ISO"@en ;
+    jl:plainEnglish "International Organization for Standardization."@en ;
+    schema:url <https://www.iso.org> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:iec
+    a jl:StandardsBody ;
+    rdfs:label "IEC"@en ;
+    jl:plainEnglish "International Electrotechnical Commission. Co-parent of ISO/IEC JTC 5."@en ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:isotc38
+    a jl:StandardsCommittee ;
+    rdfs:label "ISO/TC 38 Textiles"@en ;
+    jl:plainEnglish "Textile terminology, testing, material identification, performance and circularity."@en ;
+    schema:url <https://www.iso.org/committee/48148.html> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:iso ;
+    jl:addressesProblem id:p_textiletest .
+
+id:isotc120
+    a jl:StandardsCommittee ;
+    rdfs:label "ISO/TC 120 Leather"@en ;
+    jl:plainEnglish "Leather terminology, testing and product requirements. Matters for leather goods."@en ;
+    schema:url <https://www.iso.org/standards.html> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:iso ;
+    jl:addressesProblem id:p_leather .
+
+id:isotc133
+    a jl:StandardsCommittee ;
+    rdfs:label "ISO/TC 133 Clothing sizing"@en ;
+    jl:plainEnglish "Sizing, body measurements and digital fitting."@en ;
+    schema:url <https://www.iso.org/committee/52374.html> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:iso .
+
+id:isotc207
+    a jl:StandardsCommittee ;
+    rdfs:label "ISO/TC 207 Environmental management"@en ;
+    jl:plainEnglish "Life-cycle assessment, carbon footprint, environmental claims."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in selected concepts" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:partOf id:iso .
+
+id:uncefact
+    a jl:StandardsBody ;
+    rdfs:label "UN/CEFACT"@en ;
+    jl:plainEnglish "UN body for trade and supply-chain data exchange. Recommendation 46 covers garment and footwear traceability; Recommendation 49 covers transparency at scale."@en ;
+    schema:url <https://unece.org/trade/uncefact> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_events , id:p_trade .
+
+id:w3c
+    a jl:StandardsBody ;
+    rdfs:label "W3C"@en ;
+    jl:plainEnglish "Web standards: JSON-LD, RDF, OWL, SKOS, SHACL, PROV-O, Verifiable Credentials. Community groups are free to join."@en ;
+    schema:url <https://www.w3.org> ;
+    dcterms:source "Reference Guide / Career Guide" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_web .
+
+id:dcmi
+    a jl:StandardsBody ;
+    rdfs:label "DCMI (Dublin Core)"@en ;
+    jl:plainEnglish "Metadata terms such as title, creator, date and identifier."@en ;
+    schema:url <https://www.dublincore.org> ;
+    dcterms:source "Reference Guide / Career Guide" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_web .
+
+id:astm
+    a jl:StandardsBody ;
+    rdfs:label "ASTM International"@en ;
+    jl:plainEnglish "Test methods across many industries, including textiles."@en ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_textiletest ;
+    jl:operationalizedAs fd:TestResult .
+
+id:aatcc
+    a jl:StandardsBody ;
+    rdfs:label "AATCC"@en ;
+    jl:plainEnglish "Textile test methods. Keep the method, laboratory, date and result in the product record."@en ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:addressesProblem id:p_textiletest ;
+    jl:operationalizedAs fd:TestResult .
+
+id:ansi
+    a jl:StandardsBody ;
+    rdfs:label "ANSI"@en ;
+    jl:plainEnglish "Coordinates US voluntary standards. A standard is not automatically law."@en ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:dama
+    a jl:ProfessionalAssociation ;
+    rdfs:label "DAMA International"@en ;
+    jl:plainEnglish "Professional association behind DAMA-DMBOK."@en ;
+    schema:url <https://dama.org> ;
+    dcterms:source "Reference Guide, section D" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:eucom
+    a jl:GovernmentBody ;
+    rdfs:label "European Commission"@en ;
+    jl:plainEnglish "Proposes EU law and implements it, including through delegated acts. Follow ESPR, the textile DPP delegated act, waste, chemicals, labelling and CSRD/ESRS."@en ;
+    schema:url <https://single-market-economy.ec.europa.eu/single-market/digital-product-passport_en> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:RuleMaker .
+
+id:europarl
+    a jl:GovernmentBody ;
+    rdfs:label "European Parliament"@en ;
+    jl:plainEnglish "Co-legislator on most EU laws."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:RuleMaker .
+
+id:eucouncil
+    a jl:GovernmentBody ;
+    rdfs:label "Council of the EU"@en ;
+    jl:plainEnglish "Co-legislator representing member-state governments."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:RuleMaker .
+
+id:jrc
+    a jl:GovernmentBody ;
+    rdfs:label "Joint Research Centre"@en ;
+    jl:plainEnglish "Commission science service. Its textile DPP studies inform the delegated act. Research is not law."@en ;
+    schema:url <https://joint-research-centre.ec.europa.eu/index_en> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:proficiencyScope "with close DPP monitoring" ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:RuleMaker ;
+    jl:informs id:espr_textile .
+
+id:efrag
+    a jl:StandardsBody ;
+    rdfs:label "EFRAG"@en ;
+    jl:plainEnglish "Technical advice and standards for EU corporate sustainability reporting (ESRS)."@en ;
+    schema:url <https://www.efrag.org> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker ;
+    jl:informs id:esrs .
+
+id:echa
+    a jl:GovernmentBody ;
+    rdfs:label "ECHA"@en ;
+    jl:plainEnglish "Supports implementation of EU chemicals law (REACH, CLP)."@en ;
+    schema:url <https://echa.europa.eu> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:RuleMaker .
+
+id:eea
+    a jl:GovernmentBody ;
+    rdfs:label "European Environment Agency"@en ;
+    jl:plainEnglish "Environmental indicators and evidence about the textile sector."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:IndustryVoice .
+
+id:eumsa
+    a jl:GovernmentBody ;
+    rdfs:label "EU national market-surveillance and customs authorities"@en ;
+    jl:plainEnglish "Enforcement and implementation in the countries where products are sold or imported."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:playsRole jl:RuleMaker .
+
+id:uscongress
+    a jl:GovernmentBody ;
+    rdfs:label "US Congress"@en ;
+    jl:plainEnglish "Federal lawmaker (for example the UFLPA)."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:playsRole jl:RuleMaker .
+
+id:ftc
+    a jl:GovernmentBody ;
+    rdfs:label "US Federal Trade Commission"@en ;
+    jl:plainEnglish "Textile, wool and fur labeling rules and deceptive-advertising enforcement, including environmental claims."@en ;
+    schema:url <https://www.ftc.gov> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:RuleMaker .
+
+id:cbp
+    a jl:GovernmentBody ;
+    rdfs:label "US Customs and Border Protection"@en ;
+    jl:plainEnglish "Country-of-origin marking, customs classification, import documentation and forced-labor enforcement."@en ;
+    schema:url <https://www.cbp.gov> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:RuleMaker .
+
+id:epa
+    a jl:GovernmentBody ;
+    rdfs:label "US EPA"@en ;
+    jl:plainEnglish "Chemical regulation and environmental compliance. Not the single authority for every PFAS or textile chemical rule."@en ;
+    schema:url <https://www.epa.gov> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:proficiencyScope "casual to working literacy" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:RuleMaker .
+
+id:cpsc
+    a jl:GovernmentBody ;
+    rdfs:label "US Consumer Product Safety Commission"@en ;
+    jl:plainEnglish "Flammability and children's apparel safety. Safety compliance data is not sustainability data."@en ;
+    schema:url <https://www.cpsc.gov> ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:proficiencyScope "casual to working literacy" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:RuleMaker .
+
+id:fws
+    a jl:GovernmentBody ;
+    rdfs:label "US Fish and Wildlife Service"@en ;
+    jl:plainEnglish "Animal-derived materials. Named in RL's 10-K among product regulators."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:playsRole jl:RuleMaker .
+
+id:sec
+    a jl:GovernmentBody ;
+    rdfs:label "US SEC"@en ;
+    jl:plainEnglish "Securities regulator; issued, then moved to rescind, the climate disclosure rule."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:playsRole jl:RuleMaker .
+
+id:calrecycle
+    a jl:GovernmentBody ;
+    rdfs:label "CalRecycle"@en ;
+    jl:plainEnglish "Administers California textile EPR (SB 707)."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:playsRole jl:RuleMaker .
+
+id:carb
+    a jl:GovernmentBody ;
+    rdfs:label "CARB"@en ;
+    jl:plainEnglish "California Air Resources Board; climate disclosure laws SB 253 and SB 261."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:playsRole jl:RuleMaker .
+
+id:calauth
+    a jl:GovernmentBody ;
+    rdfs:label "California environmental and consumer-protection authorities"@en ;
+    jl:plainEnglish "State-level requirements affecting claims, chemicals and packaging."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:proficiencyScope "casual to working literacy" ;
+    jl:playsRole jl:RuleMaker .
+
+id:oecd
+    a jl:GovernmentBody ;
+    rdfs:label "OECD"@en ;
+    jl:plainEnglish "Responsible business conduct and due-diligence guidance (soft law)."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:RuleMaker .
+
+id:ilo
+    a jl:GovernmentBody ;
+    rdfs:label "ILO"@en ;
+    jl:plainEnglish "International labor standards and decent-work principles."@en ;
+    dcterms:source "Reference Guide, section B" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:RuleMaker .
+
+id:textileexchange
+    a jl:PrivateStandardsBody ;
+    rdfs:label "Textile Exchange"@en ;
+    jl:plainEnglish "Global nonprofit for preferred fibers and materials: GRS, RCS, CCS and the Materials Matter Standard."@en ;
+    schema:url <https://textileexchange.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:ClaimVerifier , jl:DataLanguageMaker .
+
+id:gots
+    a jl:PrivateStandardsBody ;
+    rdfs:label "GOTS (Global Organic Textile Standard)"@en ;
+    jl:plainEnglish "Organic textile processing plus environmental and social criteria. A GOTS certificate is not a declaration that a product is sustainable in every respect."@en ;
+    schema:url <https://global-standard.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier .
+
+id:oekotex
+    a jl:PrivateStandardsBody ;
+    rdfs:label "OEKO-TEX"@en ;
+    jl:plainEnglish "Family of testing and certification programmes. Labels are not interchangeable."@en ;
+    schema:url <https://www.oeko-tex.com> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier .
+
+id:bluesign
+    a jl:PrivateStandardsBody ;
+    rdfs:label "bluesign"@en ;
+    jl:plainEnglish "Chemical management and resource use in textile production."@en ;
+    schema:url <https://www.bluesign.com> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier .
+
+id:zdhc
+    a jl:PrivateStandardsBody ;
+    rdfs:label "ZDHC Foundation"@en ;
+    jl:plainEnglish "Chemical management in textile, apparel and footwear supply chains."@en ;
+    schema:url <https://www.roadmaptozero.com> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in the chemical-data context" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier , jl:DataLanguageMaker .
+
+id:lwg
+    a jl:PrivateStandardsBody ;
+    rdfs:label "Leather Working Group"@en ;
+    jl:plainEnglish "Environmental assessments for leather manufacturing."@en ;
+    schema:url <https://www.leatherworkinggroup.com> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier .
+
+id:cascale
+    a jl:PrivateStandardsBody ;
+    rdfs:label "Cascale (formerly Sustainable Apparel Coalition)"@en ;
+    jl:plainEnglish "Industry organisation behind the Higg Index. Develops frameworks and convenes; not the same as Worldly."@en ;
+    schema:url <https://cascale.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in the data context" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier , jl:IndustryVoice .
+
+id:worldly
+    a jl:Platform ;
+    rdfs:label "Worldly"@en ;
+    jl:plainEnglish "Software and data platform for supply-chain sustainability data, including Higg assessments."@en ;
+    schema:url <https://worldly.io> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:MarketActor .
+
+id:sai
+    a jl:PrivateStandardsBody ;
+    rdfs:label "Social Accountability International"@en ;
+    jl:plainEnglish "Owner of the SA8000 social-compliance standard."@en ;
+    schema:url <https://sa-intl.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:ClaimVerifier .
+
+id:amfori
+    a jl:PrivateStandardsBody ;
+    rdfs:label "amfori"@en ;
+    jl:plainEnglish "Social compliance and due-diligence programmes including BSCI."@en ;
+    schema:url <https://www.amfori.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:ClaimVerifier ;
+    jl:operationalizedAs fd:Assessment .
+
+id:slcp
+    a jl:IndustryInitiative ;
+    rdfs:label "Social & Labor Convergence Program"@en ;
+    jl:plainEnglish "One converged social and labor assessment framework, to reduce duplicate assessments."@en ;
+    schema:url <https://slconvergence.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:ClaimVerifier , jl:DataLanguageMaker ;
+    jl:operationalizedAs fd:Assessment .
+
+id:opensupplyhub
+    a jl:Platform ;
+    rdfs:label "Open Supply Hub"@en ;
+    jl:plainEnglish "Nonprofit open supply-chain map with 2.5M+ locations. Matching contributed records assigns each production location an OS ID."@en ;
+    schema:url <https://opensupplyhub.org> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in the data context" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:DataLanguageMaker .
+
+id:wikirate
+    a jl:Platform ;
+    rdfs:label "WikiRate"@en ;
+    jl:plainEnglish "Open data platform on company commitments, actions and impacts, run by Wikirate International e.V."@en ;
+    schema:url <https://wikirate.org/about> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:playsRole jl:IndustryVoice .
+
+id:transparencycoalition
+    a jl:IndustryInitiative ;
+    rdfs:label "Transparency Pledge coalition"@en ;
+    jl:plainEnglish "Coalition that developed the Pledge in 2016. Its page lists 38 aligned or committed companies."@en ;
+    schema:url <https://transparencypledge.org/aligned/> ;
+    dcterms:source "Reference Guide, section C" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:playsRole jl:IndustryVoice , jl:DataLanguageMaker .
+
+id:cirpass2
+    a jl:IndustryInitiative ;
+    rdfs:label "CIRPASS-2"@en ;
+    jl:plainEnglish "EU-funded DPP pilot project, including textiles. A funded project is not a regulator and its recommendations are not binding."@en ;
+    schema:url <https://cirpass2.eu> ;
+    dcterms:source "Reference Guide, section A" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in the DPP context" ;
+    jl:priorityTier jl:Tier1 ;
+    jl:playsRole jl:DataLanguageMaker , jl:IndustryVoice ;
+    jl:informs id:espr_textile .
+
+id:aura
+    a jl:IndustryInitiative ;
+    rdfs:label "Aura Blockchain Consortium"@en ;
+    jl:plainEnglish "Closest thing to a luxury traceability network (LVMH, Prada, Cartier, Richemont)."@en ;
+    schema:url <https://auraluxuryblockchain.com> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:playsRole jl:IndustryVoice , jl:DataLanguageMaker .
+
+id:fashionforgood
+    a jl:IndustryInitiative ;
+    rdfs:label "Fashion for Good"@en ;
+    jl:plainEnglish "Innovation platform for sustainable and circular solutions."@en ;
+    schema:url <https://fashionforgood.com> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:playsRole jl:IndustryVoice .
+
+id:fashionrev
+    a jl:IndustryInitiative ;
+    rdfs:label "Fashion Revolution"@en ;
+    jl:plainEnglish "Campaigning and resources on fashion transparency."@en ;
+    schema:url <https://www.fashionrevolution.org> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:playsRole jl:IndustryVoice .
+
+id:gfa
+    a jl:IndustryInitiative ;
+    rdfs:label "Global Fashion Agenda"@en ;
+    jl:plainEnglish "Nonprofit on sustainability and circularity; runs the Global Fashion Summit."@en ;
+    schema:url <https://globalfashionagenda.org> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:iaf
+    a jl:TradeAssociation ;
+    rdfs:label "International Apparel Federation"@en ;
+    jl:plainEnglish "Connects apparel associations worldwide."@en ;
+    schema:url <https://www.iafnet.com> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:euratex
+    a jl:TradeAssociation ;
+    rdfs:label "EURATEX"@en ;
+    jl:plainEnglish "European textile and clothing confederation. Read its ESPR and DPP positions to see how implementers view costs."@en ;
+    schema:url <https://euratex.eu> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:aafa
+    a jl:TradeAssociation ;
+    rdfs:label "AAFA"@en ;
+    jl:plainEnglish "US apparel and footwear association: trade, labeling, sustainability and supply-chain regulation."@en ;
+    schema:url <https://www.aafaglobal.org> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:altagamma
+    a jl:TradeAssociation ;
+    rdfs:label "Altagamma"@en ;
+    jl:plainEnglish "Italian luxury brands foundation."@en ;
+    schema:url <https://altagamma.it> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:comitecolbert
+    a jl:TradeAssociation ;
+    rdfs:label "Comité Colbert"@en ;
+    jl:plainEnglish "French luxury houses and craftsmanship."@en ;
+    schema:url <https://www.comitecolbert.com> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:fhcm
+    a jl:TradeAssociation ;
+    rdfs:label "FHCM"@en ;
+    jl:plainEnglish "French fashion federation and fashion-week ecosystem."@en ;
+    schema:url <https://www.fhcm.paris> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:walpole
+    a jl:TradeAssociation ;
+    rdfs:label "Walpole"@en ;
+    jl:plainEnglish "British luxury brands."@en ;
+    schema:url <https://www.thewalpole.co.uk> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:cfda
+    a jl:TradeAssociation ;
+    rdfs:label "CFDA"@en ;
+    jl:plainEnglish "US fashion designers council."@en ;
+    schema:url <https://cfda.com> ;
+    dcterms:source "Reference Guide, section E" ;
+    jl:inDomain jl:IndustryAndTradeBodies ;
+    jl:targetProficiency jl:CasualMonitoring ;
+    jl:priorityTier jl:Tier3 ;
+    jl:playsRole jl:IndustryVoice .
+
+id:asist
+    a jl:ProfessionalAssociation ;
+    rdfs:label "ASIS&T"@en ;
+    jl:plainEnglish "Information science association."@en ;
+    schema:url <https://www.asist.org> ;
+    dcterms:source "Reference Guide / Career Guide" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:playsRole jl:IndustryVoice .
+
+id:isko
+    a jl:ProfessionalAssociation ;
+    rdfs:label "ISKO"@en ;
+    jl:plainEnglish "Knowledge organization society."@en ;
+    schema:url <https://www.isko.org> ;
+    dcterms:source "Reference Guide / Career Guide" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:playsRole jl:IndustryVoice .
+
+id:drexel
+    a jl:University ;
+    rdfs:label "Drexel University"@en ;
+    jl:plainEnglish "MS in Information (LIS)."@en ;
+    schema:url <https://drexel.edu> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:IndustryVoice .
+
+id:drexelcci
+    a jl:University ;
+    rdfs:label "Drexel College of Computing & Informatics"@en ;
+    jl:plainEnglish "Home college of the MS in Information."@en ;
+    schema:url <https://drexel.edu/cci> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:IndustryVoice ;
+    jl:partOf id:drexel .
+
+id:drexelwestphal
+    a jl:University ;
+    rdfs:label "Drexel Westphal College of Media Arts & Design"@en ;
+    jl:plainEnglish "Design and fashion programmes; fashion network."@en ;
+    schema:url <https://drexel.edu/westphal> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:IndustryVoice ;
+    jl:partOf id:drexel .
+
+id:sgs
+    a jl:Company ;
+    rdfs:label "SGS"@en ;
+    jl:plainEnglish "Testing and certification employer."@en ;
+    schema:url <https://www.sgs.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:ClaimVerifier , jl:MarketActor .
+
+id:intertek
+    a jl:Company ;
+    rdfs:label "Intertek"@en ;
+    jl:plainEnglish "Testing and certification employer."@en ;
+    schema:url <https://www.intertek.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:ClaimVerifier , jl:MarketActor .
+
+id:bureauveritas
+    a jl:Company ;
+    rdfs:label "Bureau Veritas"@en ;
+    jl:plainEnglish "Testing and certification employer."@en ;
+    schema:url <https://group.bureauveritas.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:ClaimVerifier , jl:MarketActor .
+
+id:ul
+    a jl:Company ;
+    rdfs:label "UL Solutions"@en ;
+    jl:plainEnglish "Testing and certification employer."@en ;
+    schema:url <https://www.ul.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:ClaimVerifier , jl:MarketActor .
+
+id:retraced
+    a jl:Company ;
+    rdfs:label "Retraced"@en ;
+    jl:plainEnglish "Traceability technology vendor."@en ;
+    schema:url <https://www.retraced.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:textilegenesis
+    a jl:Company ;
+    rdfs:label "TextileGenesis"@en ;
+    jl:plainEnglish "Traceability technology vendor."@en ;
+    schema:url <https://www.textilegenesis.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:averydennison
+    a jl:Company ;
+    rdfs:label "Avery Dennison (Digital ID / atma.io)"@en ;
+    jl:plainEnglish "Digital ID and traceability vendor."@en ;
+    schema:url <https://digital.averydennison.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:eon
+    a jl:Company ;
+    rdfs:label "Eon"@en ;
+    jl:plainEnglish "Digital ID and traceability vendor."@en ;
+    schema:url <https://www.eon.xyz> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:ralphlauren
+    a jl:Company ;
+    rdfs:label "Ralph Lauren"@en ;
+    jl:plainEnglish "Capstone target. FY2026 10-K per your guide: Delaware company, New York HQ, NYSE listed, about 59% of revenue outside the US (Europe about 31%), European distribution center in Parma, Italy."@en ;
+    schema:url <https://corporate.ralphlauren.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:pvh
+    a jl:Company ;
+    rdfs:label "PVH Corp."@en ;
+    jl:plainEnglish "Apparel employer. Appears on the Transparency Pledge aligned list."@en ;
+    schema:url <https://www.pvh.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:usesStandard id:transparencypledge .
+
+id:tapestry
+    a jl:Company ;
+    rdfs:label "Tapestry"@en ;
+    jl:plainEnglish "Apparel and accessories employer."@en ;
+    schema:url <https://www.tapestry.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:capri
+    a jl:Company ;
+    rdfs:label "Capri Holdings"@en ;
+    jl:plainEnglish "Luxury employer."@en ;
+    schema:url <https://www.capriholdings.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor .
+
+id:lvmh
+    a jl:Company ;
+    rdfs:label "LVMH"@en ;
+    jl:plainEnglish "Luxury group; Aura member."@en ;
+    schema:url <https://www.lvmh.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:memberOf id:aura .
+
+id:richemont
+    a jl:Company ;
+    rdfs:label "Richemont"@en ;
+    jl:plainEnglish "Luxury group; Aura member."@en ;
+    schema:url <https://www.richemont.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:memberOf id:aura .
+
+id:kering
+    a jl:Company ;
+    rdfs:label "Kering"@en ;
+    jl:plainEnglish "Luxury group."@en ;
+    schema:url <https://www.kering.com> ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:chanel
+    a jl:Company ;
+    rdfs:label "Chanel"@en ;
+    jl:plainEnglish "Privately held, so no 10-K equivalent. Read its published sustainability reporting to see which regimes it names."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:dior
+    a jl:Company ;
+    rdfs:label "Dior"@en ;
+    jl:plainEnglish "LVMH house."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:partOf id:lvmh .
+
+id:louisvuitton
+    a jl:Company ;
+    rdfs:label "Louis Vuitton"@en ;
+    jl:plainEnglish "LVMH house."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:partOf id:lvmh .
+
+id:hermes
+    a jl:Company ;
+    rdfs:label "Hermès"@en ;
+    jl:plainEnglish "Target employer."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:prada
+    a jl:Company ;
+    rdfs:label "Prada"@en ;
+    jl:plainEnglish "Aura member."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:memberOf id:aura .
+
+id:gucci
+    a jl:Company ;
+    rdfs:label "Gucci"@en ;
+    jl:plainEnglish "Kering house."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:partOf id:kering .
+
+id:saintlaurent
+    a jl:Company ;
+    rdfs:label "Saint Laurent"@en ;
+    jl:plainEnglish "Kering house."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean ;
+    jl:partOf id:kering .
+
+id:burberry
+    a jl:Company ;
+    rdfs:label "Burberry"@en ;
+    jl:plainEnglish "Target employer."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:valentino
+    a jl:Company ;
+    rdfs:label "Valentino"@en ;
+    jl:plainEnglish "Target employer."@en ;
+    dcterms:source "Career Guide appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:playsRole jl:MarketActor ;
+    jl:targetEmployer "true"^^xsd:boolean .
+
+id:espr
+    a jl:Law ;
+    rdfs:label "ESPR, Regulation (EU) 2024/1781"@en ;
+    jl:plainEnglish "The EU ecodesign framework law. In force; product-specific rules arrive through delegated acts."@en ;
+    schema:url <https://eur-lex.europa.eu/eli/reg/2024/1781/oj> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_EU ;
+    jl:issuedBy id:europarl , id:eucouncil ;
+    jl:administeredBy id:eucom .
+
+id:espr_textile
+    a jl:Law ;
+    rdfs:label "ESPR textile rules and textile DPP (delegated act pending)"@en ;
+    jl:plainEnglish "Textile-specific requirements and the DPP await a delegated act. Vendor projection: draft late 2027, adoption 2028, enforcement mid-to-late 2029. Treat as projections."@en ;
+    schema:url <https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:EnactedNotYetApplicable ;
+    jl:jurisdiction id:jur_EU ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:issuedBy id:eucom ;
+    jl:administeredBy id:eucom ;
+    jl:expectedToReference id:jtc24 ;
+    jl:implements id:espr ;
+    jl:operationalizedAs fd:ComplianceRequirement .
+
+id:espr_destruction
+    a jl:Law ;
+    rdfs:label "ESPR ban on destroying unsold goods"@en ;
+    jl:plainEnglish "Applies to large companies from 19 July 2026, with public disclosure of unsold-goods disposal."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_EU ;
+    jl:administeredBy id:eucom ;
+    jl:implements id:espr .
+
+id:textilelabelling
+    a jl:Law ;
+    rdfs:label "EU Textile Labelling Regulation (EU) 1007/2011"@en ;
+    jl:plainEnglish "Fiber-composition labelling."@en ;
+    schema:url <https://eur-lex.europa.eu/eli/reg/2011/1007/oj> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_EU ;
+    jl:administeredBy id:eumsa .
+
+id:reach
+    a jl:Law ;
+    rdfs:label "EU REACH and CLP"@en ;
+    jl:plainEnglish "Chemical restrictions, classification and labelling."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_EU ;
+    jl:administeredBy id:echa .
+
+id:ecgt
+    a jl:Law ;
+    rdfs:label "EU anti-greenwashing directive (ECGT)"@en ;
+    jl:plainEnglish "Bans unsubstantiated generic claims such as eco-friendly. Enforceable from 27 September 2026 per a vendor source; national transposition varies."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_EU ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:administeredBy id:eumsa .
+
+id:agec
+    a jl:Law ;
+    rdfs:label "France AGEC law"@en ;
+    jl:plainEnglish "France already has a mature textile EPR system."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_France .
+
+id:eu_epr
+    a jl:Law ;
+    rdfs:label "EU textile EPR directive 2025/1892"@en ;
+    jl:plainEnglish "Awaiting national implementation."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:EnactedNotYetApplicable ;
+    jl:jurisdiction id:jur_EU .
+
+id:csrd
+    a jl:Law ;
+    rdfs:label "CSRD (non-EU parent provisions)"@en ;
+    jl:plainEnglish "Per one vendor guide, non-EU groups with EUR 450M EU revenue and an EU subsidiary or branch above EUR 200M report from FY2028. RL's subsidiary test needs entity data."@en ;
+    schema:url <https://commission.europa.eu/business-economy-euro/doing-business-eu/sustainability-due-diligence-responsible-business_en> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:EnactedNotYetApplicable ;
+    jl:jurisdiction id:jur_EU ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:administeredBy id:eucom .
+
+id:csddd
+    a jl:Law ;
+    rdfs:label "CSDDD"@en ;
+    jl:plainEnglish "Now narrower and later than planned. Probably at the outer edge for RL."@en ;
+    schema:url <https://commission.europa.eu/business-economy-euro/doing-business-eu/sustainability-due-diligence-responsible-business_en> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:EnactedNotYetApplicable ;
+    jl:jurisdiction id:jur_EU ;
+    jl:needsVerification "true"^^xsd:boolean .
+
+id:eu_forcedlabour
+    a jl:Law ;
+    rdfs:label "EU Forced Labour Regulation"@en ;
+    jl:plainEnglish "Believed to apply from late 2027. Verify the date."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:EnactedNotYetApplicable ;
+    jl:jurisdiction id:jur_EU ;
+    jl:needsVerification "true"^^xsd:boolean .
+
+id:ftc_labeling
+    a jl:Law ;
+    rdfs:label "FTC labeling laws (Textile Fiber Products Identification Act, Wool and Fur Acts, Care Labeling Rule)"@en ;
+    jl:plainEnglish "Fiber content, origin and care on labels. Closest US counterpart to EU product-data requirements."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US ;
+    jl:administeredBy id:ftc .
+
+id:ftc_deception
+    a jl:Law ;
+    rdfs:label "FTC deception law"@en ;
+    jl:plainEnglish "Binding rule behind the Green Guides: environmental claims must be substantiated."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US ;
+    jl:administeredBy id:ftc .
+
+id:uflpa
+    a jl:Law ;
+    rdfs:label "Uyghur Forced Labor Prevention Act (UFLPA)"@en ;
+    jl:plainEnglish "Rebuttable presumption barring imports made wholly or in part in Xinjiang or by listed entities. Drives raw-material traceability and evidence retention."@en ;
+    schema:url <https://www.cbp.gov/trade/forced-labor/UFLPA> ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US ;
+    jl:issuedBy id:uscongress ;
+    jl:administeredBy id:cbp ;
+    jl:operationalizedAs fd:ComplianceRequirement .
+
+id:cbp_import
+    a jl:Law ;
+    rdfs:label "CBP country-of-origin and import rules"@en ;
+    jl:plainEnglish "Origin marking, classification, documentation."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US ;
+    jl:administeredBy id:cbp .
+
+id:conflictminerals
+    a jl:Law ;
+    rdfs:label "Dodd-Frank conflict minerals reporting"@en ;
+    jl:plainEnglish "Named in RL's 10-K."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US .
+
+id:ca_supplychains
+    a jl:Law ;
+    rdfs:label "California Transparency in Supply Chains Act"@en ;
+    jl:plainEnglish "Named in RL's 10-K."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_US .
+
+id:sb253
+    a jl:Law ;
+    rdfs:label "California SB 253 (climate disclosure)"@en ;
+    jl:plainEnglish "Companies over USD 1B revenue doing business in California. First Scope 1 and 2 reports were due 10 August 2026; Scope 3 from 2027. RL very likely covered; confirm."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_California ;
+    jl:administeredBy id:carb .
+
+id:sb707
+    a jl:Law ;
+    rdfs:label "California SB 707 (textile EPR)"@en ;
+    jl:plainEnglish "CalRecycle named Landbell USA the sole producer responsibility organization; covered producers had to join by 1 July 2026. RL very likely a producer; confirm."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:InForce ;
+    jl:jurisdiction id:jur_California ;
+    jl:administeredBy id:calrecycle .
+
+id:sb261
+    a jl:Law ;
+    rdfs:label "California SB 261 (climate risk)"@en ;
+    jl:plainEnglish "Under a Ninth Circuit injunction; CARB will not enforce."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:ProposedOrStalled ;
+    jl:jurisdiction id:jur_California ;
+    jl:administeredBy id:carb .
+
+id:nyfashion
+    a jl:Law ;
+    rdfs:label "New York Fashion Act"@en ;
+    jl:plainEnglish "Proposed; the Assembly did not vote on it in an earlier session."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:ProposedOrStalled ;
+    jl:jurisdiction id:jur_US .
+
+id:secclimate
+    a jl:Law ;
+    rdfs:label "US SEC climate rule"@en ;
+    jl:plainEnglish "Adopted 2024, never took effect; rescission proposed 29 May 2026."@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:ProposedOrStalled ;
+    jl:jurisdiction id:jur_US ;
+    jl:administeredBy id:sec .
+
+id:gtin
+    a jl:Standard ;
+    rdfs:label "GTIN (Global Trade Item Number)"@en ;
+    jl:plainEnglish "Identifies a trade item. Separates product type from the individual product."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "identifier" ;
+    jl:issuedBy id:gs1 ;
+    jl:prerequisiteFor id:gs1dl , id:epcis ;
+    jl:operationalizedAs fd:TradeItem .
+
+id:gln
+    a jl:Standard ;
+    rdfs:label "GLN (Global Location Number)"@en ;
+    jl:plainEnglish "Identifies a party or location."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "identifier" ;
+    jl:issuedBy id:gs1 ;
+    jl:prerequisiteFor id:gs1dl , id:epcis ;
+    jl:operationalizedAs fd:Facility , fd:Party .
+
+id:epcis
+    a jl:Standard ;
+    rdfs:label "GS1 EPCIS"@en ;
+    jl:plainEnglish "Shares records of events involving products and other objects across a supply chain."@en ;
+    schema:url <https://www.gs1.org/standards/epcis> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "data exchange" ;
+    jl:issuedBy id:gs1 ;
+    jl:addressesProblem id:p_events ;
+    jl:operationalizedAs fd:SupplyChainEvent .
+
+id:gs1dl
+    a jl:Standard ;
+    rdfs:label "GS1 Digital Link"@en ;
+    jl:plainEnglish "Makes GS1 identifiers resolvable through web links. Likely carrier for a DPP."@en ;
+    schema:url <https://www.gs1.org/standards/gs1-digital-link> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "identifier resolution" ;
+    jl:issuedBy id:gs1 ;
+    jl:builtOn id:gtin , id:gln ;
+    jl:operationalizedAs fd:DigitalProductPassport .
+
+id:gs1voc
+    a jl:Standard ;
+    rdfs:label "GS1 Web Vocabulary"@en ;
+    jl:plainEnglish "Consumer-facing product properties, initially clothing, shoes and food. gs1:Product is an exact match of schema:Product; gs1:WearableProduct is its subclass. Its Clothing page did not render for me: verify it exists."@en ;
+    schema:url <https://ref.gs1.org/voc/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:standardKind "vocabulary" ;
+    jl:issuedBy id:gs1 ;
+    jl:builtOn id:rdf ;
+    jl:operationalizedAs fd:MaterialComposition , fd:TradeItem .
+
+id:osid
+    a jl:Standard ;
+    rdfs:label "OS ID (Open Supply Hub)"@en ;
+    jl:plainEnglish "Universal ID assigned to a production location by matching contributed records."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "identifier" ;
+    jl:issuedBy id:opensupplyhub ;
+    jl:operationalizedAs fd:Facility .
+
+id:rec46
+    a jl:Standard ;
+    rdfs:label "UN/CEFACT Recommendation 46"@en ;
+    jl:plainEnglish "Traceability and transparency in garment and footwear value chains, with textile and leather data models."@en ;
+    schema:url <https://unece.org/trade/uncefact/tf_recommendations> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "data model" ;
+    jl:issuedBy id:uncefact ;
+    jl:operationalizedAs fd:SupplyChainEvent .
+
+id:rec49
+    a jl:Standard ;
+    rdfs:label "UN/CEFACT Recommendation 49"@en ;
+    jl:plainEnglish "Revised 2025. Transparency at scale and sustainable value chains, including digital tools and product passports."@en ;
+    schema:url <https://unece.org/trade/uncefact/tf_recommendations> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "data model" ;
+    jl:issuedBy id:uncefact .
+
+id:transparencyprotocol
+    a jl:Standard ;
+    rdfs:label "UN/CEFACT Transparency Protocol"@en ;
+    jl:plainEnglish "Garment and footwear transparency protocol that uses linked data and verifiable credentials."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:ProductDataStandards ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "data exchange" ;
+    jl:issuedBy id:uncefact ;
+    jl:builtOn id:vc2 , id:jsonld .
+
+id:rdf
+    a jl:Standard ;
+    rdfs:label "RDF"@en ;
+    jl:plainEnglish "Represents information as relationships between things."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "data model language" ;
+    jl:issuedBy id:w3c ;
+    jl:prerequisiteFor id:owl , id:skos , id:shacl , id:jsonld , id:sparql .
+
+id:owl
+    a jl:Standard ;
+    rdfs:label "OWL"@en ;
+    jl:plainEnglish "Formal models of concepts and relationships; supports reasoning."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "ontology language" ;
+    jl:issuedBy id:w3c ;
+    jl:prerequisiteFor id:provo ;
+    jl:builtOn id:rdf .
+
+id:skos
+    a jl:Standard ;
+    rdfs:label "SKOS"@en ;
+    jl:plainEnglish "Represents controlled vocabularies, thesauri and concept schemes. Learn this first."@en ;
+    schema:url <https://www.w3.org/TR/skos-reference/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "vocabulary language" ;
+    jl:issuedBy id:w3c ;
+    jl:builtOn id:rdf .
+
+id:shacl
+    a jl:Standard ;
+    rdfs:label "SHACL"@en ;
+    jl:plainEnglish "Rules for checking whether data conforms to a shape."@en ;
+    schema:url <https://www.w3.org/TR/shacl/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "validation language" ;
+    jl:issuedBy id:w3c ;
+    jl:builtOn id:rdf .
+
+id:jsonld
+    a jl:Standard ;
+    rdfs:label "JSON-LD"@en ;
+    jl:plainEnglish "JSON syntax for linked data. Format of the RL portfolio graph."@en ;
+    schema:url <https://json-ld.org> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "serialization" ;
+    jl:issuedBy id:w3c ;
+    jl:prerequisiteFor id:vc2 , id:linkeddata ;
+    jl:builtOn id:rdf .
+
+id:provo
+    a jl:Standard ;
+    rdfs:label "PROV-O"@en ;
+    jl:plainEnglish "W3C provenance ontology: agents, activities, entities."@en ;
+    schema:url <https://www.w3.org/TR/prov-o/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "provenance model" ;
+    jl:issuedBy id:w3c ;
+    jl:builtOn id:owl .
+
+id:vc2
+    a jl:Standard ;
+    rdfs:label "W3C Verifiable Credentials Data Model 2.0"@en ;
+    jl:plainEnglish "W3C Recommendation since 15 May 2025: standard way to express and verify claims issued by an organization."@en ;
+    schema:url <https://www.w3.org/TR/vc-data-model-2.0/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "credential model" ;
+    jl:issuedBy id:w3c ;
+    jl:builtOn id:jsonld .
+
+id:sparql
+    a jl:Standard ;
+    rdfs:label "SPARQL"@en ;
+    jl:plainEnglish "Query language for RDF graphs. Named in the job description."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "query language" ;
+    jl:issuedBy id:w3c .
+
+id:schemaorg
+    a jl:Standard ;
+    rdfs:label "schema.org"@en ;
+    jl:plainEnglish "Shared vocabulary of 826 types and 1,540 properties (at fetch time). Acts as a data dictionary. Lists the GS1 Web Vocabulary as an external extension."@en ;
+    schema:url <https://schema.org/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "vocabulary" ;
+    jl:issuedBy id:w3c ;
+    jl:addressesProblem id:p_web ;
+    jl:alignedWith id:gs1voc .
+
+id:dcterms
+    a jl:Standard ;
+    rdfs:label "Dublin Core Terms"@en ;
+    jl:plainEnglish "Descriptive metadata properties."@en ;
+    schema:url <https://www.dublincore.org> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "vocabulary" ;
+    jl:issuedBy id:dcmi .
+
+id:iso14040
+    a jl:Standard ;
+    rdfs:label "ISO 14040 and 14044 (life-cycle assessment)"@en ;
+    jl:plainEnglish "Principles and requirements for LCA."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in selected concepts" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "assessment method" ;
+    jl:issuedBy id:isotc207 .
+
+id:iso14067
+    a jl:Standard ;
+    rdfs:label "ISO 14067 (carbon footprint of products)"@en ;
+    jl:plainEnglish "Carbon footprint of products."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:proficiencyScope "in selected concepts" ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "assessment method" ;
+    jl:issuedBy id:isotc207 .
+
+id:iso22095
+    a jl:Standard ;
+    rdfs:label "ISO 22095 (chain of custody)"@en ;
+    jl:plainEnglish "Common framework for chain-of-custody models. Tracking a delivery is not proof a finished product contains a specific certified or recycled material."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "framework" ;
+    jl:issuedBy id:iso ;
+    jl:operationalizedAs fd:Claim .
+
+id:iso8000
+    a jl:Standard ;
+    rdfs:label "ISO 8000 (data quality)"@en ;
+    jl:plainEnglish "Data quality is more than a filled field: complete but wrong, consistent but outdated."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "framework" ;
+    jl:issuedBy id:iso .
+
+id:iso59000
+    a jl:Standard ;
+    rdfs:label "ISO 59000 series (circular economy)"@en ;
+    jl:plainEnglish "Circular-economy principles, implementation and measurement."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "framework" ;
+    jl:issuedBy id:iso .
+
+id:iso11179
+    a jl:Standard ;
+    rdfs:label "ISO/IEC 11179 (metadata registries)"@en ;
+    jl:plainEnglish "Data-element definitions and permissible values. Is material_origin the same as country_of_origin?"@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "metadata registry" ;
+    jl:issuedBy id:iso .
+
+id:oekostd100
+    a jl:CertificationScheme ;
+    rdfs:label "OEKO-TEX STANDARD 100"@en ;
+    jl:plainEnglish "Tests every component against 1,000+ harmful substances. Product classes 1 to 4. Certificates last one year; check validity by QR code or the Label Check."@en ;
+    schema:url <https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "certification" ;
+    jl:issuedBy id:oekotex ;
+    jl:operationalizedAs fd:Certificate .
+
+id:grs
+    a jl:CertificationScheme ;
+    rdfs:label "Global Recycled Standard (GRS-101)"@en ;
+    jl:plainEnglish "Recycled content and chain of custody."@en ;
+    schema:url <https://textileexchange.org/knowledge-center/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "certification" ;
+    jl:issuedBy id:textileexchange .
+
+id:rcs
+    a jl:CertificationScheme ;
+    rdfs:label "Recycled Claim Standard (RCS-101)"@en ;
+    jl:plainEnglish "Recycled-claim standard."@en ;
+    schema:url <https://textileexchange.org/knowledge-center/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "certification" ;
+    jl:issuedBy id:textileexchange .
+
+id:ccs
+    a jl:CertificationScheme ;
+    rdfs:label "Content Claim Standard (CCS-102 procedures)"@en ;
+    jl:plainEnglish "Content-claim certification procedures."@en ;
+    schema:url <https://textileexchange.org/knowledge-center/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "certification" ;
+    jl:issuedBy id:textileexchange .
+
+id:mms
+    a jl:CertificationScheme ;
+    rdfs:label "Textile Exchange Materials Matter Standard"@en ;
+    jl:plainEnglish "Criteria released 12 Dec 2025; effective 31 Dec 2026; mandatory 31 Dec 2027, with transition for existing standards."@en ;
+    schema:url <https://textileexchange.org/standards/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "certification" ;
+    jl:issuedBy id:textileexchange .
+
+id:dmbok
+    a jl:Framework ;
+    rdfs:label "DAMA-DMBOK"@en ;
+    jl:plainEnglish "Data governance, metadata, quality, reference and master data, architecture, integration."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "body of knowledge" ;
+    jl:issuedBy id:dama .
+
+id:higg
+    a jl:Framework ;
+    rdfs:label "Higg Index"@en ;
+    jl:plainEnglish "Assessment and measurement tools in the Cascale ecosystem. Framework, assessment result, verified claim and regulatory disclosure are four different things."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "assessment tools" ;
+    jl:issuedBy id:cascale ;
+    jl:relatedTo id:worldly .
+
+id:sa8000
+    a jl:Framework ;
+    rdfs:label "SA8000"@en ;
+    jl:plainEnglish "Social-compliance standard. An assessment is not proof that all labor risks are gone."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "social compliance" ;
+    jl:issuedBy id:sai ;
+    jl:operationalizedAs fd:Assessment .
+
+id:transparencypledge
+    a jl:Framework ;
+    rdfs:label "Transparency Pledge (2016)"@en ;
+    jl:plainEnglish "Facility disclosure standard. The aligned list table has columns for factory name, parent company, product type, worker numbers, OAR and RBI membership."@en ;
+    schema:url <https://transparencypledge.org/aligned/> ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:PrivateStandardsAndCertification ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "disclosure standard" ;
+    jl:issuedBy id:transparencycoalition ;
+    jl:relatedTo id:opensupplyhub .
+
+id:esrs
+    a jl:Framework ;
+    rdfs:label "ESRS"@en ;
+    jl:plainEnglish "Sustainability reporting standards used within CSRD: double materiality, disclosure requirements, data points."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:standardKind "reporting standard" ;
+    jl:issuedBy id:efrag ;
+    jl:implements id:csrd .
+
+id:greenguides
+    a jl:Framework ;
+    rdfs:label "FTC Green Guides"@en ;
+    jl:plainEnglish "Guidance on environmental claims. Whether the revision is final is unconfirmed in your notes."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier2 ;
+    jl:legalStatus jl:Voluntary ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:standardKind "guidance" ;
+    jl:issuedBy id:ftc .
+
+id:gri
+    a jl:Framework ;
+    rdfs:label "GRI"@en ;
+    jl:plainEnglish "Voluntary reporting standard."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "reporting standard" .
+
+id:ghgprotocol
+    a jl:Framework ;
+    rdfs:label "GHG Protocol"@en ;
+    jl:plainEnglish "Voluntary emissions accounting."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "accounting standard" .
+
+id:sbti
+    a jl:Framework ;
+    rdfs:label "SBTi"@en ;
+    jl:plainEnglish "Voluntary science-based targets."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:legalStatus jl:Voluntary ;
+    jl:standardKind "target setting" .
+
+id:jrcstudy
+    a jl:ResearchStudy ;
+    rdfs:label "JRC textile DPP content study (May 2026)"@en ;
+    jl:plainEnglish "Published May 2026 per your notes. Identifies which product attributes and data requirements may be appropriate. Research recommendation, not a legal obligation."@en ;
+    dcterms:source "Reference Guide / Career Guide / fetched pages" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:targetProficiency jl:WorkingLiteracy ;
+    jl:priorityTier jl:Tier1 ;
+    jl:standardKind "study" ;
+    jl:issuedBy id:jrc ;
+    jl:informs id:espr_textile .
+
+id:protege
+    a jl:Tool ;
+    rdfs:label "Protege (ontology editor)"@en ;
+    jl:plainEnglish "Free ontology editor. Open the exported Turtle or JSON-LD file here."@en ;
+    schema:url <https://protege.stanford.edu> ;
+    dcterms:source "Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies .
+
+id:neo4j
+    a jl:Tool ;
+    rdfs:label "Neo4j"@en ;
+    jl:plainEnglish "Property-graph database named in the job description."@en ;
+    dcterms:source "Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies .
+
+id:graphql
+    a jl:Tool ;
+    rdfs:label "GraphQL"@en ;
+    jl:plainEnglish "API query language named in the job description."@en ;
+    dcterms:source "Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies .
+
+id:azure
+    a jl:Tool ;
+    rdfs:label "Azure"@en ;
+    jl:plainEnglish "Cloud platform named as nice-to-have."@en ;
+    dcterms:source "Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies .
+
+id:sql
+    a jl:Tool ;
+    rdfs:label "SQL"@en ;
+    jl:plainEnglish "Named in your Tier 1 data-governance skills."@en ;
+    dcterms:source "Career Guide / job description" ;
+    jl:inDomain jl:DataQualityAndGovernance .
+
+id:metadata
+    a jl:Concept ;
+    rdfs:label "Metadata"@en ;
+    jl:plainEnglish "Information that describes other information."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:controlledvocab , id:datadictionary .
+
+id:controlledvocab
+    a jl:Concept ;
+    rdfs:label "Controlled vocabulary"@en ;
+    jl:plainEnglish "An agreed set of terms used consistently."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:taxonomy , id:skos .
+
+id:taxonomy
+    a jl:Concept ;
+    rdfs:label "Taxonomy"@en ;
+    jl:plainEnglish "A structured way to organize concepts into categories (a hierarchical controlled vocabulary)."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:ontology .
+
+id:ontology
+    a jl:Concept ;
+    rdfs:label "Ontology"@en ;
+    jl:plainEnglish "A model of the things in a domain and how they relate to one another, with rules that allow inference."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:semanticmapping , id:knowledgegraph .
+
+id:identifier
+    a jl:Concept ;
+    rdfs:label "Identifier"@en ;
+    jl:plainEnglish "A value used to distinguish one thing from another."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:masterdata , id:gtin , id:gln ;
+    jl:operationalizedAs fd:TradeItem .
+
+id:schema
+    a jl:Concept ;
+    rdfs:label "Schema"@en ;
+    jl:plainEnglish "The contract data must conform to in order to be accepted. Example: schema.org Product."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise .
+
+id:datamodel
+    a jl:Concept ;
+    rdfs:label "Data model"@en ;
+    jl:plainEnglish "A blueprint showing what information exists and how the pieces relate."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:schema .
+
+id:datadictionary
+    a jl:Concept ;
+    rdfs:label "Data dictionary"@en ;
+    jl:plainEnglish "A reference that explains what each data field means and how to use it. schema.org is one."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:semanticmapping .
+
+id:provenance
+    a jl:Concept ;
+    rdfs:label "Provenance"@en ;
+    jl:plainEnglish "The history of where information came from and how it was obtained or changed."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:chainofcustody , id:provo ;
+    jl:relatedTo id:lineage ;
+    jl:operationalizedAs fd:SupplyChainEvent .
+
+id:lineage
+    a jl:Concept ;
+    rdfs:label "Data lineage"@en ;
+    jl:plainEnglish "The trace of where data has been, what happened at each stop and where it goes next."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:relatedTo id:chainofcustody .
+
+id:chainofcustody
+    a jl:Concept ;
+    rdfs:label "Chain of custody"@en ;
+    jl:plainEnglish "Who accessed, moved or modified the data or evidence, when and why."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:iso22095 ;
+    jl:operationalizedAs fd:SupplyChainEvent , fd:Lot .
+
+id:interoperability
+    a jl:Concept ;
+    rdfs:label "Interoperability"@en ;
+    jl:plainEnglish "Different systems exchanging and correctly using information."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise .
+
+id:datagovernance
+    a jl:Concept ;
+    rdfs:label "Data governance"@en ;
+    jl:plainEnglish "The rules, responsibilities and controls for managing data."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:dmbok .
+
+id:dataquality
+    a jl:Concept ;
+    rdfs:label "Data quality"@en ;
+    jl:plainEnglish "How well data meets the needs of its intended use."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:iso8000 .
+
+id:masterdata
+    a jl:Concept ;
+    rdfs:label "Master data"@en ;
+    jl:plainEnglish "Core records about important entities such as products, suppliers and facilities."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:entityres ;
+    jl:operationalizedAs fd:ProductModel , fd:Facility , fd:Material .
+
+id:referencedata
+    a jl:Concept ;
+    rdfs:label "Reference data"@en ;
+    jl:plainEnglish "Agreed values used to classify or describe records, such as country codes or approved status values."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise .
+
+id:validationrule
+    a jl:Concept ;
+    rdfs:label "Validation rule"@en ;
+    jl:plainEnglish "A test that determines whether data meets a defined condition."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:prerequisiteFor id:shacl ;
+    jl:operationalizedAs fd:Verification .
+
+id:infolifecycle
+    a jl:Concept ;
+    rdfs:label "Information lifecycle"@en ;
+    jl:plainEnglish "How information is created, used, updated, retained, shared and disposed of."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:DataQualityAndGovernance ;
+    jl:targetProficiency jl:DeepExpertise .
+
+id:semanticmapping
+    a jl:Concept ;
+    rdfs:label "Semantic mapping"@en ;
+    jl:plainEnglish "A documented explanation of how one system's terms and fields correspond to another's."@en ;
+    dcterms:source "Reference Guide, one-page glossary" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:targetProficiency jl:DeepExpertise .
+
+id:knowledgegraph
+    a jl:Concept ;
+    rdfs:label "Knowledge graph"@en ;
+    jl:plainEnglish "Data modeled as things and the relationships between them. Core of the job description."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies ;
+    jl:prerequisiteFor id:sparql .
+
+id:linkeddata
+    a jl:Concept ;
+    rdfs:label "Linked data"@en ;
+    jl:plainEnglish "Publishing data so identifiers resolve to web links and connect across sources."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:SemanticTechnologies .
+
+id:traceability
+    a jl:Concept ;
+    rdfs:label "Traceability"@en ;
+    jl:plainEnglish "Establishing where products and materials came from and how they moved."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:prerequisiteFor id:epcis , id:duediligence ;
+    jl:operationalizedAs fd:SupplyChainEvent .
+
+id:duediligence
+    a jl:Concept ;
+    rdfs:label "Due diligence"@en ;
+    jl:plainEnglish "The broader process of identifying, preventing, mitigating and addressing adverse impacts."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting .
+
+id:evidence
+    a jl:Concept ;
+    rdfs:label "Evidence"@en ;
+    jl:plainEnglish "Material that supports a claim, with a known source, scope, date and method of verification."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:priorityTier jl:Tier1 ;
+    jl:prerequisiteFor id:chainofcustody ;
+    jl:operationalizedAs fd:Evidence .
+
+id:claim
+    a jl:Concept ;
+    rdfs:label "Claim"@en ;
+    jl:plainEnglish "A statement about a product, material or facility, such as a supplier declaration. A claim is not proof."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:prerequisiteFor id:evidence ;
+    jl:operationalizedAs fd:Claim .
+
+id:dpp
+    a jl:Concept ;
+    rdfs:label "Digital Product Passport"@en ;
+    jl:plainEnglish "A product-specific digital information mechanism defined through the applicable legal framework."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:priorityTier jl:Tier1 ;
+    jl:usesStandard id:gtin , id:gs1dl , id:epcis ;
+    jl:relatedTo id:espr_textile ;
+    jl:operationalizedAs fd:DigitalProductPassport .
+
+id:doublemateriality
+    a jl:Concept ;
+    rdfs:label "Double materiality"@en ;
+    jl:plainEnglish "ESRS lens: impacts on people and planet, and financial effects on the company."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting .
+
+id:lca
+    a jl:Concept ;
+    rdfs:label "Life-cycle assessment"@en ;
+    jl:plainEnglish "Method for measuring a product's environmental impact across its life."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting .
+
+id:epr
+    a jl:Concept ;
+    rdfs:label "Extended producer responsibility"@en ;
+    jl:plainEnglish "Producer obligations for products after use, such as textile take-back schemes."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting .
+
+id:circularity
+    a jl:Concept ;
+    rdfs:label "Circularity"@en ;
+    jl:plainEnglish "Product information that supports durability, reuse, repair, refurbishment, remanufacturing and recycling."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting .
+
+id:entityres
+    a jl:Concept ;
+    rdfs:label "Entity resolution"@en ;
+    jl:plainEnglish "Deciding whether two records describe the same real-world thing, such as one factory under three names."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:prerequisiteFor id:osid ;
+    jl:operationalizedAs fd:Facility .
+
+id:origin
+    a jl:Concept ;
+    rdfs:label "Country of origin"@en ;
+    jl:plainEnglish "Origin, place of last processing step and evidence for an origin claim are related but not interchangeable."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:operationalizedAs fd:Claim .
+
+id:substantiation
+    a jl:Concept ;
+    rdfs:label "Substantiation"@en ;
+    jl:plainEnglish "Evidence a company holds to back an environmental claim."@en ;
+    dcterms:source "Reference Guide / Career Guide / job description" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:operationalizedAs fd:Claim .
+
+id:dist_espr_dpp
+    a jl:Distinction ;
+    rdfs:label "ESPR vs DPP"@en ;
+    jl:plainEnglish "ESPR is the legal framework. A DPP is a product-specific digital information mechanism defined through the applicable legal framework."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Which one is the law and which one is the mechanism?" ;
+    jl:contrasts id:espr , id:dpp .
+
+id:dist_csrd_esrs
+    a jl:Distinction ;
+    rdfs:label "CSRD vs ESRS"@en ;
+    jl:plainEnglish "CSRD is the corporate reporting directive. ESRS are the standards used within its framework, subject to scope."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Which is the directive and which are the reporting standards?" ;
+    jl:contrasts id:csrd , id:esrs .
+
+id:dist_jrc_law
+    a jl:Distinction ;
+    rdfs:label "JRC research vs law"@en ;
+    jl:plainEnglish "Scientific recommendations can inform legal requirements. A research report is not itself binding."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Can a research recommendation bind a company?" ;
+    jl:contrasts id:jrcstudy , id:espr_textile .
+
+id:dist_trace_dd
+    a jl:Distinction ;
+    rdfs:label "Traceability vs due diligence"@en ;
+    jl:plainEnglish "Traceability shows where products and materials came from and how they moved. Due diligence is the wider process of identifying, preventing, mitigating and addressing adverse impacts."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Where did it come from, versus what harm did we address?" ;
+    jl:contrasts id:traceability , id:duediligence .
+
+id:dist_evidence_claim
+    a jl:Distinction ;
+    rdfs:label "Evidence vs assertion"@en ;
+    jl:plainEnglish "A supplier's statement is a claim. Its reliability depends on context, supporting evidence, verification and the applicable requirement."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Is this a statement or something that supports one?" ;
+    jl:contrasts id:evidence , id:claim ;
+    jl:operationalizedAs fd:Claim , fd:Evidence .
+
+id:dist_committees
+    a jl:Distinction ;
+    rdfs:label "JTC 24 vs ISO/IEC JTC 5 vs the Commission"@en ;
+    jl:plainEnglish "The Commission sets the legal framework. CEN-CENELEC JTC 24 and ISO/IEC JTC 5 work on technical standards in different standardisation systems."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Who writes what?" ;
+    jl:contrasts id:jtc24 , id:isoiecjtc5 , id:eucom .
+
+id:dist_cascale_worldly
+    a jl:Distinction ;
+    rdfs:label "Cascale vs Worldly"@en ;
+    jl:plainEnglish "Cascale develops industry frameworks and convenes. Worldly provides software and data solutions used to support assessments."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Framework owner or data platform?" ;
+    jl:contrasts id:cascale , id:worldly .
+
+id:dist_schema_model
+    a jl:Distinction ;
+    rdfs:label "Schema vs data model vs data dictionary"@en ;
+    jl:plainEnglish "A data model is the blueprint. A schema is the enforceable contract. A data dictionary explains each field. A taxonomy is hierarchical; an ontology adds relationships and rules."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Blueprint, contract or reference?" ;
+    jl:contrasts id:schema , id:datamodel , id:datadictionary , id:taxonomy , id:ontology .
+
+id:dist_prov_lineage_coc
+    a jl:Distinction ;
+    rdfs:label "Provenance vs lineage vs chain of custody"@en ;
+    jl:plainEnglish "Provenance is how data was produced. Lineage is how it moved across systems. Chain of custody records who handled it, when and why."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "History, system trail or people trail?" ;
+    jl:contrasts id:provenance , id:lineage , id:chainofcustody .
+
+id:dist_product_event
+    a jl:Distinction ;
+    rdfs:label "Identifying a product vs recording its journey"@en ;
+    jl:plainEnglish "GTIN identifies the product type. EPCIS records an event in its journey. Do not merge them."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Is this a what or a what-happened?" ;
+    jl:contrasts id:gtin , id:epcis .
+
+id:dist_law_standard
+    a jl:Distinction ;
+    rdfs:label "Law vs standard vs certificate"@en ;
+    jl:plainEnglish "Standards are voluntary unless (1) a law points to them, (2) a customer contract demands them or (3) they serve as evidence for a green claim."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "When does a voluntary standard become required?" ;
+    jl:contrasts id:textilelabelling , id:iso22095 , id:oekostd100 .
+
+id:dist_origin
+    a jl:Distinction ;
+    rdfs:label "Origin vs last processing step vs origin evidence"@en ;
+    jl:plainEnglish "Related but not interchangeable. An origin claim needs supporting evidence."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Which origin do you mean?" ;
+    jl:contrasts id:origin , id:cbp_import .
+
+id:dist_size
+    a jl:Distinction ;
+    rdfs:label "Size label vs garment vs body measurement"@en ;
+    jl:plainEnglish "A size label, the garment's actual measurements and the body measurements it is designed to fit are three data points."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "What does the number describe?" ;
+    jl:contrasts id:isotc133 .
+
+id:dist_impact_claim
+    a jl:Distinction ;
+    rdfs:label "Measured impact vs sustainability claim"@en ;
+    jl:plainEnglish "A measured environmental impact (LCA) differs from a general sustainability claim, which needs substantiation under rules such as the anti-greenwashing directive."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "Measured or merely asserted?" ;
+    jl:contrasts id:lca , id:substantiation , id:ecgt .
+
+id:dist_cert_scope
+    a jl:Distinction ;
+    rdfs:label "Certificate vs universal sustainability"@en ;
+    jl:plainEnglish "Do not record Sustainable = Yes. Record the material, the scheme, the certificate and issuer, the covered facility, validity, the evidence linking it to this product, and the date and method of verification."@en ;
+    dcterms:source "Reference Guide, 'study by heart' and distinction boxes" ;
+    jl:inDomain jl:TraceabilityProvenanceEvidence ;
+    jl:targetProficiency jl:DeepExpertise ;
+    jl:keyQuestion "What exactly does this certificate cover?" ;
+    jl:contrasts id:gots , id:claim , id:evidence ;
+    jl:operationalizedAs fd:Certificate .
+
+id:p_identify
+    a jl:Problem ;
+    rdfs:label "Identify a product or location"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_events
+    a jl:Problem ;
+    rdfs:label "Exchange supply-chain event records"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_textiletest
+    a jl:Problem ;
+    rdfs:label "Understand textile testing"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_leather
+    a jl:Problem ;
+    rdfs:label "Understand leather-specific standards"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_trade
+    a jl:Problem ;
+    rdfs:label "Understand international trade traceability models"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_web
+    a jl:Problem ;
+    rdfs:label "Understand web data and linked information"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:p_dpp
+    a jl:Problem ;
+    rdfs:label "Understand the DPP standardisation landscape"@en ;
+    dcterms:source "Reference Guide, section A table" ;
+    jl:inDomain jl:ProductDataStandards .
+
+id:m_vc2
+    a jl:Milestone ;
+    rdfs:label "W3C Verifiable Credentials 2.0 becomes a Recommendation"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2025-05-15" ;
+    jl:milestoneOf id:vc2 .
+
+id:m_mms_release
+    a jl:Milestone ;
+    rdfs:label "Materials Matter Standard criteria released"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2025-12-12" ;
+    jl:milestoneOf id:mms .
+
+id:m_epr_dir
+    a jl:Milestone ;
+    rdfs:label "EU textile EPR directive 2025/1892 adopted, awaiting national implementation"@en ;
+    jl:plainEnglish "Date given only as year in notes"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:date "2025" ;
+    jl:milestoneOf id:eu_epr .
+
+id:m_rec49
+    a jl:Milestone ;
+    rdfs:label "UN/CEFACT Recommendation 49 revised"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2025" ;
+    jl:milestoneOf id:rec49 .
+
+id:m_jrc
+    a jl:Milestone ;
+    rdfs:label "JRC textile DPP content study published"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-05" ;
+    jl:milestoneOf id:jrcstudy .
+
+id:m_sec
+    a jl:Milestone ;
+    rdfs:label "SEC proposes rescinding climate rule"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-05-29" ;
+    jl:milestoneOf id:secclimate .
+
+id:m_sb707
+    a jl:Milestone ;
+    rdfs:label "California SB 707: producers must join the PRO"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-07-01" ;
+    jl:milestoneOf id:sb707 .
+
+id:m_destruction
+    a jl:Milestone ;
+    rdfs:label "ESPR destruction ban applies to large companies"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-07-19" ;
+    jl:milestoneOf id:espr_destruction .
+
+id:m_sb253
+    a jl:Milestone ;
+    rdfs:label "California SB 253 first Scope 1 and 2 reports due"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-08-10" ;
+    jl:milestoneOf id:sb253 .
+
+id:m_ecgt
+    a jl:Milestone ;
+    rdfs:label "Anti-greenwashing directive enforceable"@en ;
+    jl:plainEnglish "Vendor source; national transposition varies"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:date "2026-09-27" ;
+    jl:milestoneOf id:ecgt .
+
+id:m_mms_eff
+    a jl:Milestone ;
+    rdfs:label "Materials Matter Standard effective"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2026-12-31" ;
+    jl:milestoneOf id:mms .
+
+id:m_sb253_s3
+    a jl:Milestone ;
+    rdfs:label "California SB 253 Scope 3 reporting begins"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2027" ;
+    jl:milestoneOf id:sb253 .
+
+id:m_mms_mand
+    a jl:Milestone ;
+    rdfs:label "Materials Matter Standard mandatory"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2027-12-31" ;
+    jl:milestoneOf id:mms .
+
+id:m_forced
+    a jl:Milestone ;
+    rdfs:label "EU Forced Labour Regulation applies (believed)"@en ;
+    jl:plainEnglish "Verify the date"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:needsVerification "true"^^xsd:boolean ;
+    jl:date "2027" ;
+    jl:milestoneOf id:eu_forcedlabour .
+
+id:m_draft
+    a jl:Milestone ;
+    rdfs:label "Draft textile DPP delegated act"@en ;
+    jl:plainEnglish "Late 2027, vendor projection"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:isProjection "true"^^xsd:boolean ;
+    jl:date "2027" ;
+    jl:milestoneOf id:espr_textile .
+
+id:m_adopt
+    a jl:Milestone ;
+    rdfs:label "Textile DPP delegated act adopted"@en ;
+    jl:plainEnglish "Early to mid 2028, vendor projection"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:isProjection "true"^^xsd:boolean ;
+    jl:date "2028" ;
+    jl:milestoneOf id:espr_textile .
+
+id:m_csrd
+    a jl:Milestone ;
+    rdfs:label "CSRD reporting for qualifying non-EU parents starts (FY2028)"@en ;
+    jl:plainEnglish "Per one vendor guide"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:date "2028" ;
+    jl:milestoneOf id:csrd .
+
+id:m_enforce
+    a jl:Milestone ;
+    rdfs:label "ESPR textile rules and DPP enforced"@en ;
+    jl:plainEnglish "Mid to late 2029, vendor projection"@en ;
+    dcterms:source "Career Guide, regulation status key" ;
+    jl:inDomain jl:RegulationAndReporting ;
+    jl:isProjection "true"^^xsd:boolean ;
+    jl:date "2029" ;
+    jl:milestoneOf id:espr_textile .
+
+id:s_ontology
+    a jl:Skill ;
+    rdfs:label "Ontology design"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:ontology , id:owl , id:rdf , id:protege , id:semanticmapping , id:datamodel .
+
+id:s_taxonomy
+    a jl:Skill ;
+    rdfs:label "Taxonomy and controlled vocabulary management"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:taxonomy , id:controlledvocab , id:skos , id:referencedata .
+
+id:s_datamodeling
+    a jl:Skill ;
+    rdfs:label "Entity-relationship and data modeling"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:datamodel , id:schema , id:datadictionary , id:masterdata , id:iso11179 .
+
+id:s_kg
+    a jl:Skill ;
+    rdfs:label "Knowledge graph development"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:knowledgegraph , id:rdf , id:jsonld , id:linkeddata , id:schemaorg .
+
+id:s_metadata
+    a jl:Skill ;
+    rdfs:label "Metadata standards"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:metadata , id:dcterms , id:iso11179 , id:schemaorg , id:gs1voc , id:dmbok .
+
+id:s_governance
+    a jl:Skill ;
+    rdfs:label "Taxonomy and data governance"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:datagovernance , id:dmbok , id:dataquality , id:iso8000 , id:validationrule , id:shacl .
+
+id:s_translate
+    a jl:Skill ;
+    rdfs:label "Translating domain concepts for business teams"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:dist_espr_dpp , id:dist_evidence_claim , id:dist_trace_dd , id:dist_csrd_esrs , id:dist_jrc_law .
+
+id:s_stakeholder
+    a jl:Skill ;
+    rdfs:label "Executive and stakeholder partnership"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:euratex , id:aafa , id:gfa .
+
+id:s_ai
+    a jl:Skill ;
+    rdfs:label "Semantic models for AI, search and retrieval"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:knowledgegraph , id:jsonld , id:gs1voc , id:schemaorg , id:sparql .
+
+id:s_graphtech
+    a jl:Skill ;
+    rdfs:label "Graph technologies"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:rdf , id:owl , id:sparql , id:shacl , id:neo4j , id:graphql , id:protege .
+
+id:s_domain
+    a jl:Skill ;
+    rdfs:label "Fashion supply-chain and compliance domain knowledge"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:gs1 , id:uncefact , id:espr , id:dpp , id:textileexchange , id:uflpa , id:jrc , id:jtc24 , id:cirpass2 .
+
+id:s_lifecycle
+    a jl:Skill ;
+    rdfs:label "Lifecycle modeling"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:infolifecycle , id:espr_textile , id:circularity , id:lca .
+
+id:s_events
+    a jl:Skill ;
+    rdfs:label "Event and transaction data modeling"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:epcis , id:rec46 , id:chainofcustody , id:provenance , id:provo .
+
+id:s_datasets
+    a jl:Skill ;
+    rdfs:label "Sustainability and supply-chain datasets"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:opensupplyhub , id:wikirate , id:worldly , id:cascale , id:transparencypledge .
+
+id:s_cloud
+    a jl:Skill ;
+    rdfs:label "Cloud platforms"@en ;
+    dcterms:source "Job description, adapted" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:requiresKnowledgeOf id:azure .
+
+id:jr1
+    a jl:JobRequirement ;
+    rdfs:label "Experience in ontology development, knowledge management, knowledge graphs, or semantic data modeling."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Same craft, applied to product, material, supplier and evidence data." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "LibGuide done; this learning ontology and the RL knowledge-graph page are in progress." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_ontology , id:s_kg , id:s_datamodeling .
+
+id:jr2
+    a jl:JobRequirement ;
+    rdfs:label "Experience working in financial services."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "The industry domain moves from finance to a regulated, evidence-heavy one: luxury and apparel product development, supply chain and compliance." ;
+    jl:readiness "Reframe" ;
+    jl:readinessNote "No finance claim to make. Domain depth in fashion production plus DPP, sustainability and traceability rules is the substitute. Hands-on pattern making and factory visits are the domain evidence." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_domain .
+
+id:jr3
+    a jl:JobRequirement ;
+    rdfs:label "Proven experience building enterprise ontology frameworks from the ground up, including taxonomy, governance, and metadata standards."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "A fashion product-information framework: taxonomy, governance model and metadata standard for one house." ;
+    jl:readiness "Planned" ;
+    jl:readinessNote "The Ralph Lauren capstone is the proof." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_ontology , id:s_taxonomy , id:s_governance .
+
+id:jr4
+    a jl:JobRequirement ;
+    rdfs:label "Deep expertise in ontology design, taxonomy management, and entity relationship modeling."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Classes and properties for product, material, facility, certificate, claim and event; vocabularies for materials, certifications and jurisdictions." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "Practice here: the domain seed in this project." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_ontology , id:s_taxonomy , id:s_datamodeling .
+
+id:jr5
+    a jl:JobRequirement ;
+    rdfs:label "Experience developing knowledge graphs and semantic models that support AI, search, and knowledge discovery."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Cross-domain semantic discovery: a product graph that connects culture, place and aesthetics for search and retrieval." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "RL flag-sweater page in progress." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_kg , id:s_ai .
+
+id:jr6
+    a jl:JobRequirement ;
+    rdfs:label "Strong ability to translate complex business concepts into scalable knowledge management solutions."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Explain metadata, provenance, evidence and DPP data requirements to designers, product developers, sourcing and sustainability teams." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "The distinction cards are the practice material." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_translate .
+
+id:jr7
+    a jl:JobRequirement ;
+    rdfs:label "Experience partnering directly with executive stakeholders and business leaders."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Design, product development, supply chain, sustainability, legal and IT leaders." ;
+    jl:readiness "Evidence" ;
+    jl:readinessNote "Your Career Guide notes nine years at IFAC among standards bodies and members, and events experience. Outside fashion, but real." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_stakeholder .
+
+id:jr8
+    a jl:JobRequirement ;
+    rdfs:label "Excellent communication and stakeholder management skills with the ability to serve as the organization's Ontology SME."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Be the named owner of the house's product ontology and metadata standards." ;
+    jl:readiness "Planned" ;
+    jl:readinessNote "Outreach plan and capstone interviews." ;
+    jl:requirementLevel "Required" ;
+    jl:requires id:s_stakeholder , id:s_translate .
+
+id:jr9
+    a jl:JobRequirement ;
+    rdfs:label "Understanding of M&A transactions and deal lifecycle processes."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Three lifecycles: the product (design to end of life), the supply chain (sourcing to resale) and the law (proposal to enforcement)." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "Milestone timeline in this graph." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_lifecycle .
+
+id:jr10
+    a jl:JobRequirement ;
+    rdfs:label "Experience with Azure."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Cloud fluency in any major cloud; not fashion-specific." ;
+    jl:readiness "Not started" ;
+    jl:readinessNote "Low priority." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_cloud .
+
+id:jr11
+    a jl:JobRequirement ;
+    rdfs:label "Investment banking, private equity, or capital markets experience."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Brand ownership and group structure: parent groups, licensees, investors." ;
+    jl:readiness "Not applicable" ;
+    jl:readinessNote "Group structures appear in the employer nodes." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_domain .
+
+id:jr12
+    a jl:JobRequirement ;
+    rdfs:label "Experience organizing and modeling transaction datasets."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Supply-chain event datasets: purchase orders, shipments, EPCIS events, transaction certificates." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "EPCIS and Recommendation 46 are the models to learn." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_events , id:s_datamodeling .
+
+id:jr13
+    a jl:JobRequirement ;
+    rdfs:label "Familiarity with graph technologies such as Neo4j, RDF, SPARQL, OWL, GraphQL, or similar platforms."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Same stack." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "Protege plus the exported files from this project." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_graphtech .
+
+id:jr14
+    a jl:JobRequirement ;
+    rdfs:label "Experience supporting enterprise AI initiatives and LLM-based applications."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Ontology-grounded retrieval over product, compliance and sustainability knowledge." ;
+    jl:readiness "Not started" ;
+    jl:readinessNote "Follows the capstone." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_ai .
+
+id:jr15
+    a jl:JobRequirement ;
+    rdfs:label "Knowledge of financial datasets, market intelligence platforms, or deal databases."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Sustainability and supply-chain datasets: Open Supply Hub, WikiRate, Higg through Worldly, Transparency Pledge disclosures." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "Open Supply Hub, WikiRate and the Pledge are in your reading list." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_datasets .
+
+id:jr16
+    a jl:JobRequirement ;
+    rdfs:label "Experience building taxonomies and metadata standards for large-scale knowledge repositories."@en ;
+    dcterms:source "Insight Global job description (finance)" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:fashionTranslation "Taxonomies for materials, categories, certifications and claims, mapped to GS1, schema.org and UN/CEFACT." ;
+    jl:readiness "Building" ;
+    jl:readinessNote "Crosswalk deliverable below." ;
+    jl:requirementLevel "Nice to have" ;
+    jl:requires id:s_taxonomy , id:s_metadata .
+
+id:d_libguide
+    a jl:Deliverable ;
+    rdfs:label "Research LibGuide (Drexel assignment)"@en ;
+    jl:plainEnglish "Foundation for this learning ontology. Page was not readable by me (robots.txt), so its contents are not in the graph yet."@en ;
+    schema:url <https://drexellis.libguides.com/c.php?g=1563852&p=11737685&preview=05f1f8c10e0d05073ddb6718ede9dbc6> ;
+    dcterms:source "user message" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "Done" .
+
+id:d_learning
+    a jl:Deliverable ;
+    rdfs:label "Learning ontology (this project)"@en ;
+    jl:plainEnglish "Practice build before the capstone. Tiers, status and source on every node."@en ;
+    dcterms:source "this build" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "In progress" ;
+    jl:demonstrates id:s_ontology , id:s_taxonomy , id:s_datamodeling , id:s_kg , id:s_metadata , id:s_governance ;
+    jl:buildsOn id:d_libguide .
+
+id:d_rlsite
+    a jl:Deliverable ;
+    rdfs:label "Ralph Lauren flag-sweater knowledge-graph page"@en ;
+    jl:plainEnglish "JSON-LD graph behind an editorial product page. First of several products."@en ;
+    dcterms:source "your notes" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "In progress" ;
+    jl:demonstrates id:s_kg , id:s_ai .
+
+id:d_capstone
+    a jl:Deliverable ;
+    rdfs:label "Ralph Lauren capstone"@en ;
+    jl:plainEnglish "Real organization, real information problem, stakeholder research, audit, model, prototype, evaluation, case study."@en ;
+    dcterms:source "your roadmap" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "Planned" ;
+    jl:demonstrates id:s_ontology , id:s_taxonomy , id:s_governance , id:s_stakeholder , id:s_domain , id:s_translate ;
+    jl:buildsOn id:d_learning , id:d_rlsite ;
+    jl:targets id:ralphlauren .
+
+id:d_crosswalk
+    a jl:Deliverable ;
+    rdfs:label "Crosswalk: GS1 Web Vocabulary, schema.org and UN/CEFACT Rec 46 for one garment"@en ;
+    jl:plainEnglish "Semantic-mapping practice. Suggested."@en ;
+    dcterms:source "suggested" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "Suggested" ;
+    jl:demonstrates id:s_metadata , id:s_datamodeling ;
+    jl:buildsOn id:d_learning .
+
+id:d_shapes
+    a jl:Deliverable ;
+    rdfs:label "SHACL shapes for the certificate-evidence model"@en ;
+    jl:plainEnglish "Check scope, validity dates and issuer on every claim. Suggested."@en ;
+    dcterms:source "suggested" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "Suggested" ;
+    jl:demonstrates id:s_governance , id:s_graphtech ;
+    jl:buildsOn id:d_learning .
+
+id:d_jrcreq
+    a jl:Deliverable ;
+    rdfs:label "JRC-to-data-requirements register"@en ;
+    jl:plainEnglish "Trace each proposed DPP field to its evidence, owner and source system. Suggested."@en ;
+    dcterms:source "suggested" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:deliverableStatus "Suggested" ;
+    jl:demonstrates id:s_domain , id:s_governance ;
+    jl:buildsOn id:d_learning .
+
+id:res_refguide
+    a jl:Resource ;
+    rdfs:label "Reference Guide: circularity, regulation, standards, accountability"@en ;
+    jl:plainEnglish "Your 48-organization map with tiers and glossary."@en ;
+    dcterms:source "attached file" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Notes" ;
+    jl:describes id:dama , id:gs1 , id:textileexchange .
+
+id:res_careerguide
+    a jl:Resource ;
+    rdfs:label "Career Transition Guide with resource appendix"@en ;
+    jl:plainEnglish "Where standards work happens, regulation status key, link appendix."@en ;
+    dcterms:source "attached file" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Notes" ;
+    jl:describes id:ralphlauren .
+
+id:res_cen_sdg
+    a jl:Resource ;
+    rdfs:label "CEN-CENELEC: Sustainable Development Goals page"@en ;
+    jl:plainEnglish "Interactive mapping of European standards to the 17 SDGs. No textile, DPP or circularity standard named on this page. Closest goal: SDG 12."@en ;
+    schema:url <https://www.cencenelec.eu/european-standardization/sustainable-development-goals-sdgs/> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:cencenelec .
+
+id:res_gs1_std
+    a jl:Resource ;
+    rdfs:label "GS1 Standards overview"@en ;
+    jl:plainEnglish "Groups the work as identify, capture, share. Also lists the GS1 Discovery App, the Fighting Illicit Trade initiative and a global traceability framework."@en ;
+    schema:url <https://www.gs1.org/standards> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:gs1 .
+
+id:res_schema
+    a jl:Resource ;
+    rdfs:label "schema.org: schemas overview"@en ;
+    jl:plainEnglish "826 types, 1,540 properties, 96 enumerations. Hierarchy starts at Thing. Hosted sections plus external extensions including the GS1 Web Vocabulary."@en ;
+    schema:url <https://schema.org/docs/schemas.html> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:schemaorg .
+
+id:res_gs1_wear
+    a jl:Resource ;
+    rdfs:label "GS1 Web Vocabulary: WearableProduct"@en ;
+    jl:plainEnglish "Page is script-rendered and showed no class details. From gs1.org/voc/Product: WearableProduct is a subclass of gs1:Product, with Size details (group, system, type, dimension) and Textile material details (description, percentage, thread count, weight)."@en ;
+    schema:url <https://ref.gs1.org/voc/WearableProduct> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:gs1voc .
+
+id:res_gs1_cloth
+    a jl:Resource ;
+    rdfs:label "GS1 Web Vocabulary: Clothing"@en ;
+    jl:plainEnglish "Page is script-rendered and showed no class details. The gs1:Product page lists no Clothing subclass. Verify against the downloadable vocabulary."@en ;
+    schema:url <https://ref.gs1.org/voc/Clothing> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:gs1voc .
+
+id:res_te_kc
+    a jl:Resource ;
+    rdfs:label "Textile Exchange Knowledge Center"@en ;
+    jl:plainEnglish "Filter tags for audience (brands, suppliers) and materials (cotton, leather, polyester, wool and more). Lists GRS-101, GRS-201, RCS-101, RCS-201, CCS-102."@en ;
+    schema:url <https://textileexchange.org/knowledge-center/> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:textileexchange .
+
+id:res_oeko
+    a jl:Resource ;
+    rdfs:label "OEKO-TEX STANDARD 100 page"@en ;
+    jl:plainEnglish "Product classes 1 to 4, one-year certificates, QR label and Label Check, modular certification."@en ;
+    schema:url <https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100/> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:oekostd100 .
+
+id:res_osh
+    a jl:Resource ;
+    rdfs:label "Open Supply Hub home"@en ;
+    jl:plainEnglish "Nonprofit; 2.5M+ locations; matching assigns the OS ID; production locations can claim their profile."@en ;
+    schema:url <https://opensupplyhub.org/> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:opensupplyhub , id:osid .
+
+id:res_wikirate
+    a jl:Resource ;
+    rdfs:label "WikiRate about page"@en ;
+    jl:plainEnglish "Open data on company commitments, actions and impacts; tools to collect, analyze and share; the page does not define metrics or answers."@en ;
+    schema:url <https://wikirate.org/about> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:wikirate .
+
+id:res_tp
+    a jl:Resource ;
+    rdfs:label "Transparency Pledge: aligned companies"@en ;
+    jl:plainEnglish "38 aligned or committed companies, including PVH. Ralph Lauren does not appear in the list I could read."@en ;
+    schema:url <https://transparencypledge.org/aligned/> ;
+    dcterms:source "fetched 2026-11-14" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Web" ;
+    jl:describes id:transparencypledge , id:transparencycoalition , id:pvh .
+
+id:res_gs1us_train
+    a jl:Resource ;
+    rdfs:label "GS1 US education and events"@en ;
+    schema:url <https://www.gs1us.org/education-and-events> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Training" ;
+    jl:describes id:gs1us .
+
+id:res_zdhc_acad
+    a jl:Resource ;
+    rdfs:label "ZDHC Academy"@en ;
+    schema:url <https://learn.roadmaptozero.com> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Training" ;
+    jl:describes id:zdhc .
+
+id:res_fr_res
+    a jl:Resource ;
+    rdfs:label "Fashion Revolution resources"@en ;
+    schema:url <https://www.fashionrevolution.org/resources/> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Training" ;
+    jl:describes id:fashionrev .
+
+id:res_te_acad
+    a jl:Resource ;
+    rdfs:label "Textile Exchange academy"@en ;
+    schema:url <https://textileexchange.org/academy/> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Training" ;
+    jl:describes id:textileexchange .
+
+id:ev_te_conf
+    a jl:Resource ;
+    rdfs:label "Textile Exchange Conference"@en ;
+    schema:url <https://textileexchange.org/events/> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Event" ;
+    jl:describes id:textileexchange .
+
+id:ev_gfs
+    a jl:Resource ;
+    rdfs:label "Global Fashion Summit"@en ;
+    schema:url <https://globalfashionagenda.org/events/> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Event" ;
+    jl:describes id:gfa .
+
+id:ev_gs1connect
+    a jl:Resource ;
+    rdfs:label "GS1 Connect"@en ;
+    schema:url <https://www.gs1us.org/events> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Event" ;
+    jl:describes id:gs1us .
+
+id:ev_pv
+    a jl:Resource ;
+    rdfs:label "Premiere Vision"@en ;
+    schema:url <https://www.premierevision.com> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Event" .
+
+id:ev_tbc
+    a jl:Resource ;
+    rdfs:label "Taxonomy Boot Camp"@en ;
+    schema:url <https://www.taxonomybootcamp.com> ;
+    dcterms:source "career appendix" ;
+    jl:inDomain jl:CareerAndCapstone ;
+    jl:resourceType "Event" .
+
+ex:house
+    a fd:Brand ;
+    rdfs:label "Example House (fictional)"@en .
+
+ex:style
+    a fd:ProductModel ;
+    rdfs:label "Example crewneck sweater, style EX-0001 (fictional)"@en ;
+    fd:brandOf ex:house ;
+    fd:hasVariant ex:item .
+
+ex:item
+    a fd:TradeItem ;
+    rdfs:label "Example crewneck, colour navy, size M (fictional)"@en ;
+    fd:gtin "00000000000000" ;
+    fd:hasComposition ex:comp1 ;
+    fd:madeFromLot ex:lot .
+
+ex:comp1
+    a fd:MaterialComposition ;
+    rdfs:label "100% wool (example)"@en ;
+    fd:ofMaterial ex:wool ;
+    fd:percentage "100"^^xsd:decimal .
+
+ex:wool
+    a fd:Material ;
+    rdfs:label "Wool (example)"@en .
+
+ex:lot
+    a fd:Lot ;
+    rdfs:label "Wool yarn lot L-001 (fictional)"@en ;
+    fd:lotOfMaterial ex:wool ;
+    fd:producedAt ex:facility .
+
+ex:facility
+    a fd:Facility ;
+    rdfs:label "Example spinning mill (fictional)"@en ;
+    fd:osId "XX0000000EXAMPLE" .
+
+ex:certifier
+    a fd:Certifier ;
+    rdfs:label "Example certification body (fictional)"@en .
+
+ex:cert
+    a fd:Certificate ;
+    rdfs:label "Example certificate EX-CERT-001 (fictional)"@en ;
+    fd:issuedBy ex:certifier ;
+    fd:underScheme id:oekostd100 ;
+    fd:coversFacility ex:facility ;
+    fd:coversMaterial ex:wool ;
+    fd:certificateNumber "EX-CERT-001" ;
+    fd:validFrom "2026-01-01"^^xsd:date ;
+    fd:validTo "2026-12-31"^^xsd:date .
+
+ex:claim
+    a fd:Claim ;
+    rdfs:label "Claim: this crewneck contains certified wool (example)"@en ;
+    fd:aboutItem ex:item ;
+    fd:aboutMaterial ex:wool ;
+    fd:assertedBy ex:house ;
+    fd:supportedBy ex:cert .
+
+ex:check
+    a fd:Verification ;
+    rdfs:label "Verification of EX-CERT-001 (example)"@en ;
+    fd:verifies ex:cert ;
+    fd:performedBy ex:house ;
+    fd:verificationDate "2026-02-01"^^xsd:date ;
+    fd:verificationMethod "Certificate number checked against the issuer's online directory" .
+
+ex:event
+    a fd:SupplyChainEvent ;
+    rdfs:label "Yarn produced at the mill (example)"@en ;
+    fd:concerns ex:lot ;
+    fd:atFacility ex:facility ;
+    fd:eventTime "2026-01-20T09:00:00Z"^^xsd:dateTime ;
+    fd:businessStep "producing" .
